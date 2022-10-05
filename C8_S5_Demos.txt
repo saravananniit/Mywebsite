@@ -1,0 +1,637 @@
+EX1: Normal flow
+===============
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normal Flow of a Document</title>
+    <style>
+       body {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        p {
+            background:lightblue;
+            border: 2px solid rgb(255, 84, 104);
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        span {
+            background: yellow;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Basic document flow</h1>
+
+    <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+    <p>By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+
+    <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+
+    <p>Inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>,
+        or just go on to a new line if not, much like this image will do:
+        <img src="./bird.jpg" alt="bird" width="50" height="50">
+    </p>
+</body>
+
+</html>
+=================================================================================================
+EX2: floats without clear
+=========================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Elements</title>
+    <style>
+        body {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: Helvetica;
+        }
+        
+        .box {
+            float:left;
+            margin-right:15px;
+            width: 150px;
+            height: 100px;
+            padding: 1em;
+            background-color:lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple float example</h1>
+    <div class="box">Float</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet.
+    </p>
+    <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed
+        pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+    <p>Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.
+        Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+</body>
+
+</html>
+================================================================================================
+EX3: floats removed from normal flow
+====================================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: Helvetica;
+        }
+        
+        .box {
+            float: right;
+            margin: 15px;
+            width: 150px;
+            height: 100px;
+            padding: 1em;
+            background-color: lightgray;
+        }
+        
+        .special {
+            background-color: lightslategray;
+            padding: 10px;
+            color: #fff;
+        }
+
+        .clear{
+           /* clear:left; */ 
+           /* clear:right; */ 
+          /*  clear:both*/ 
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Simple float example</h1>
+    <div class="box">Float</div>
+    <p class="special">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet.
+    </p>
+    <p class="clear">Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.
+        Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+    <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed
+        pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+</body>
+
+</html>
+===========================================================================================
+EX4: floats with clear
+======================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: Helvetica;
+        }
+        
+        .box {
+            float: left;
+            margin: 15px;
+            width: 150px;
+            height: 100px;
+            padding: 1em;
+            background-color: lightgray;
+        }
+        
+        .special {
+            background-color:lightslategray;
+            padding: 10px;
+            color: #fff;
+        }
+        
+        .cleared {
+            clear: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Clear float example</h1>
+        <div class="box">Float</div>
+        <p class="special">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit
+            amet.
+        </p>
+    <p class="cleared">Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed
+        pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+    <p>Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.
+        Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+</body>
+
+</html>
+===========================================================================================
+EX5: floats with clearfix hack
+==============================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: Helvetica;
+        }
+        
+        .box {
+            float: left;
+            margin: 15px;
+            width: 150px;
+            height: 100px;
+            padding: 1em;
+            background-color: lightgray;
+        }
+        
+        .wrapper {
+            background-color: lightslategray;
+            padding: 10px;
+            color: #fff;
+        }
+
+        .wrapper::after{
+            content:"";
+            clear: both;
+            display:block;
+        }
+        
+       
+    </style>
+</head>
+
+<body>
+    <h1>Float with clearfix hack</h1>
+    <div class="wrapper">
+        <div class="box">Float</div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit
+            amet.
+        </p>
+    </div>
+    <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed
+        pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus.</p>
+    <p>Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.
+        Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+</body>
+
+</html>
+=============================================================================================
+EX6: static positioning
+=======================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        p {
+            background:lightblue;
+            border: 2px solid rgb(255, 84, 104);
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        span {
+            background: yellow;
+            border: 1px solid black;
+        }
+        
+        .positioned {
+            position: relative;
+            background: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Static Positioning</h1>
+
+    <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+    <p class="positioned">By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+
+    <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+
+    <p>Inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>,
+        or just go on to a new line if not, much like this image will do:
+        <img src="./bird.jpg" alt="bird" height="50" width="50">
+    </p>
+</body>
+
+</html>
+==========================================================================================
+EX7: absolute positioning 
+=========================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        p {
+            background:lightblue;
+            border: 2px solid rgb(255, 84, 104);
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        span {
+            background: yellow;
+            border: 1px solid black;
+        }
+        
+        .positioned {
+            position: absolute;
+            background: lightgreen;
+             top: 200px;
+            left: 10px;
+        } 
+    </style>
+</head>
+
+<body>
+    <h1>Absolute positioning</h1>
+
+    <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+    <p class="positioned">By default we span 100% of the width of our parent element</p>
+
+    <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+
+    <p>Inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements <span>wrap onto a new line if possible â€” like this one containing text</span>,
+        or just go on to a new line if not, much like this image will do: <img src="./bird.jpg" width="50" height="50"></p>
+
+</body>
+
+</html>
+
+</body>
+
+</html>
+==============================================================================================
+EX8: relative positioning
+=========================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        p {
+            background:lightblue;
+            border: 2px solid rgb(255, 84, 104);
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        span {
+            background: yellow;
+            border: 1px solid black;
+        }
+        
+        .positioned {
+            position: relative;
+            background: lightgreen;
+            /*Helps to modify the elements position using top,left,bottom and right properties*/
+            top: 30px;
+            left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Relative Positioning</h1>
+
+    <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+    <p class="positioned">By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+
+    <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+
+    <p>Inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>,
+        or just go on to a new line if not, much like this image will do:
+        <img src="./bird.jpg" height="50" width="50">
+    </p>
+</body>
+
+</html>
+============================================================================================
+Ex9: Fixed positioning
+======================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+            width: 500px;
+            margin: 0 auto;
+            height:1000px;
+
+        }
+        
+        p {
+            background:lightblue;
+            border: 2px solid rgb(255, 84, 104);
+            padding: 10px;
+            margin: 10px;
+            
+        }
+        
+        span {
+            background: yellow;
+            border: 1px solid black;
+        }
+        
+        h1 {
+            position: fixed;
+            top: 0;/* to make h1 stick on to top of the screen*/
+            width: 500px;
+            margin-top: 0;
+            background:white;
+            padding: 10px;
+        }
+        
+         p:nth-of-type(1) {
+            margin-top: 60px;
+        }
+         
+        
+    </style>
+</head>
+
+<body>
+    <h1>Fixed Positioning</h1>
+
+    <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+    <p>By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+
+    <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+
+    <p>Inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>,
+        or just go on to a new line if not, much like this image will do:
+        <img src="./bird.jpg" height="50" width="50">
+    </p>
+</body>
+
+</html>
+======================================================================================================
+Ex10: Zindex with div
+=====================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<style>
+div {
+	width: 140px;
+	height: 140px;
+	margin: 10px;
+	text-align: center;
+
+	/* Only display the last div */
+	 position: absolute; 
+}
+
+/* If we want to adjust the z-axis */
+/* use z-index */
+.d1 {
+	background-color: #79D588;
+	top: 50px;
+	 z-index: 0; 
+	/* Use comment/uncomment upper
+	line to see the difference */
+}
+
+.d2 {
+	background-color: #F6CD6C;
+	top: 70px;
+	 z-index: 3; 
+	/* Use comment/uncomment upper
+	line to see the difference */
+}
+
+.d3 {
+	background-color: #289485;
+	top: 90px;
+	z-index: 5;
+	/* Use comment/uncomment upper
+	line to see the difference */
+}
+
+.d4 {
+	background-color: #403E3E;
+	top: 110px;
+	 z-index: 10; 
+	/* Use comment/uncomment upper
+	line to see the difference */
+}
+
+
+    </style>
+</head>
+
+<body>
+	<div class="d1">I'm Div One</div>
+	<div class="d2">I'm Div Two</div>
+	<div class="d3">I'm Div Three</div>
+	<div class="d4">I'm Div Four</div>
+</body>
+
+</html>
+
+===========================================================================================
+Ex11: Zindex 
+============
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        p {
+            background: aqua;
+            border: 3px solid blue;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        span {
+            background: hotpink;
+            border: 1px solid black;
+        }
+        
+        .positioned {
+            position: absolute;
+            background: yellow;
+            top: 30px;
+            left: 30px;
+            z-index:auto;/* equal to 0*/
+        }
+        
+        p:nth-of-type(1) {
+            position: absolute;
+            background: lime;
+            top: 10px;
+            right: 30px;
+            z-index: 1; 
+        }
+    </style>
+</head>
+
+<body>
+    <h1>z-index</h1>
+
+    <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+    <p class="positioned">Now I'm absolutely positioned relative to the <code>&lt;body&gt;</code> element, not the <code>&lt;html&gt;</code> element!</p>
+
+    <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+
+    <p>Inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements <span>wrap onto a new line if possible â€” like this one containing text</span>,
+        or just go on to a new line if not, much like this image will do: 
+        <img src="./bird.jpg" width="50" height="50">
+
+</body>
+
+</html>
+=================================================================================================
+EX12: Zindex with image
+======================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    img {
+	 position : absolute;
+ 	left: 0px;
+ 	top: 0px;
+ 	z-index: -1;
+	}
+    </style>
+</head>
+
+<body>
+    <h1>z-index</h1>
+    <img src="./bird.jpg" alt="bird" width="100" height="140">
+    <p> Welcome to NIIT</p>
+</body>
+</html>
+=========================================================================================== 
+
+
+

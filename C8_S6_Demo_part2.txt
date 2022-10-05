@@ -1,0 +1,190 @@
+EX1: Flex align items
+======================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex align items</title>
+    <style>
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            
+        }
+
+        .card {
+
+            width: 200px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            max-width: 100%;
+            
+        }
+
+        .card .text {
+            padding: 0 20px 20px;
+
+        }
+
+        .card .text>button {
+            background-color: gray;
+            border: 0;
+            color: white;
+            padding: 10px;
+            width: 100%
+        }
+    </style>
+
+</head>
+
+<body>
+    <main class="cards">
+        <article class="card">
+            <img src="images/flower.jpg" alt="flower">
+            <div class="text">
+                <h3>flower</h3>
+                <p>About flower</p>
+                <button>Flower</button>
+            </div>
+        </article>
+        <article class="card">
+            <img src="images/tree_with_flowers.jpg" alt="tree with flowers">
+            <div class="text">
+                <h3>tree with flower</h3>
+                <p>About tree with flower</p>
+                <button>tree Flower</button>
+            </div>
+        </article>
+        <article class="card">
+            <img src="images/office.jpg" alt="office">
+            <div class="text">
+                <h3>office</h3>
+                <p>About office</p>
+                <button>office</button>
+            </div>
+        </article>
+
+
+
+    </main>
+</body>
+
+</html>
+=================================================================================
+EX2: Grid template 1
+====================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid layout</title>
+    <style>
+        #grid {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 2vw;
+        }
+
+        #grid>div {
+            font-size: 5vw;
+            padding: .5em;
+            background: green;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+</body>
+
+</html>
+=========================================================================================
+EX3: Grid template 2
+====================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS grid</title>
+</head>
+<style>
+    body {
+        display: grid;
+        grid-template-areas: "header header header""nav article ads""footer footer footer";
+        grid-template-rows: 60px 1fr 60px;
+        grid-template-columns: 20% 1fr 15%;
+        grid-gap: 1.5vw;
+        height: 100vh;
+        margin: 0;
+    }
+
+    header,
+    footer,
+    article,
+    nav,
+    div {
+        padding: 20px;
+        background: gold;
+    }
+
+    #pageHeader {
+        grid-area: header;
+    }
+
+    #pageFooter {
+        grid-area: footer;
+    }
+
+    #mainArticle {
+        grid-area: article;
+    }
+
+    #mainNav {
+        grid-area: nav;
+    }
+
+    #siteAds {
+        grid-area: ads;
+
+    }
+</style>
+
+
+<body>
+    <header id="pageHeader">Header</header>
+    <article id="mainArticle">Article</article>
+    <nav id="mainNav">Nav</nav>
+    <div id="siteAds">Ads</div>
+    <footer id="pageFooter">Footer</footer>
+</body>
+
+</html>
+=========================================================================================

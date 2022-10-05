@@ -1,0 +1,386 @@
+Ex1: anchor styles 
+=================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 300px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-family: sans-serif;
+        }
+        
+        p {
+            line-height: 1.4;
+        }
+         a {
+            text-decoration: none; 
+            background-color: lightsalmon;
+            padding: 2px 1px 0;
+        } 
+        
+        a:link{
+            color:red;
+        }
+        a:visited{
+            color:green;
+        }
+        a:focus{
+           background-color:black;
+           border-bottom:solid 1px brown;
+       }
+       a:hover{
+           color:blue;
+       }
+       a:active{
+           color:limegreen;
+       }
+       
+ 
+    </style>
+</head>
+
+<body>
+    <p>There are several browsers available, such as </p>
+        <ul>
+            <li><a href="#">Mozilla Firefox</a></li>
+            <li><a href="#">Google Chrome</a></li>
+            <li><a href="#">Microsoft Edge</a></li>
+        </ul>
+        Need to know more about browsers <a href="###">Click Here</a>
+    
+</body>
+
+</html>
+====================================================================================
+EX2: background  property
+=============================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            background-color:blue;
+        }
+        
+        p {
+            text-align: center;
+            font: bold italic 2em cursive;/*style variant size family*/
+        }
+                
+        body {
+            background: rgb(255, 201, 209) url(./images/image2.jpeg) no-repeat scroll left;
+        }
+       
+       #para1{
+           font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+       }
+    </style>
+</head>
+
+<body>
+    <h1>Websites for inspirations</h1>
+    <p id="para1">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    </p>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    </p>
+</body>
+</html>
+=============================================================================================
+Ex3: Class selector
+===================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .heading {
+            color: red;
+            text-align: center;
+        }
+        .grocery {
+            list-style-type:lower-roman;
+        }
+        .lang {
+            list-style-type: square;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 class="heading">Grocery List</h3>
+    <ol class="grocery">
+        <li>Milk</li>
+        <li>Bread</li>
+        <li>Vegetables</li>
+        <li>Eggs</li>
+    </ol>
+    <hr>
+    <h3 class="heading">Programming languages</h3>
+    <ul class="lang">
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>C#</li>
+    </ul>
+</body>
+
+</html>
+====================================================================================================
+Ex4: combinator selector 1
+==========================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinator Selector</title>
+    <style>
+        div p {
+            color: blue;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        
+        section > p {
+            color: green;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML code used for understanding descendant selectors -->
+    <div>
+        <h2>Stackroute Immersive courses, a better way to learn</h2>
+        <p>Learning with Stackroute is quick and easy!</p>
+        <p>In fact, it's so easy you are doing it now!</p>
+        <article>
+            <p>This paragraph is a descendant of the div tag</p>
+        </article>
+    </div>
+    <hr>
+    <!-- HTML code used for understanding child selectors -->
+    <section>
+        <h2>This heading is a direct child of the section tag.</h2>
+        <p>Follows the paragraph tag.</p>
+        <article>
+            <p>This paragraph tag is NOT a direct child of the section tag</p>
+        </article>
+        <p>This paragraph tag is also a direct child of the section tag</p>
+    </section>
+
+
+</body>
+
+</html>
+===================================================================================================
+Ex5: combinator selector 2
+===========================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sibling Selectors</title>
+    <style>
+        /* Adjacent sibling selctor */
+        
+        h2 + p {
+            color: orange;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        /* General Sibling Selectors */
+        
+        button ~ p {
+            color: blue;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML code for adjacent sibling selector -->
+    <div>
+        <h2>This header is a H2 tag.</h2>
+        <p>This paragraph immediately follows the heading.</p>
+        <p>This paragraph is NOT adjacent to the heading</p>
+        <button>
+        <p>This paragraph is NOT immediately following a H2 tag.</p>
+        </button>
+    </div>
+    <!-- HTML code for general sibling selector -->
+    <div>
+        <h2>I am heading tag!</h2>
+        <p>I am paragraph tag 1.</p>
+        <button>
+          <p>I am a paragraph tag inside a button!</p>
+         </button>
+        <p>I am paragraph tag 2.</p>
+        <p>I am paragraph tag 3.</p>
+        <h3>I am another heading tag!</h3>
+        <p>I am paragraph tag 4.</p>
+    </div>
+</body>
+
+</html>
+=========================================================================
+Ex6: Embeded Style
+==================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded styled Document</title>
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam sunt deleniti eligendi hic optio! Quas sapiente repellendus, inventore delectus, magnam perspiciatis quisquam veniam quos, vitae necessitatibus tempora itaque velit exercitationem?
+    </p>
+</body>
+
+</html>
+================================================================================
+Ex7: External styles
+====================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External Style Linked Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis necessitatibus perspiciatis excepturi sapiente nihil laudantium delectus unde voluptatibus itaque numquam, aperiam iusto illo facere minima. Reprehenderit facilis est molestias fugit.
+    </p>
+</body>
+
+</html>
+
+Note: create a folder CSS and place  style.css file
+
+p{
+    color: yellow;
+}
+===============================================================================================
+Ex8: id selector
+=================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*Defining the style for the paragraph with id as para1 */
+        
+        #para1 {
+            color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Main Heading</h1>
+    <h2>Sub Heading</h2>
+    <p id="para1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo ut doloribus sed reprehenderit explicabo similique iste laborum, ab ea obcaecati excepturi, nihil culpa corrupti libero quae itaque labore vitae ducimus.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores harum inventore ut voluptas debitis, mollitia saepe quibusdam atque esse ea facere adipisci nesciunt deserunt est modi fuga perferendis non corporis
+    </p>
+</body>
+
+</html>
+===============================================================================================
+Ex9: inline style
+=================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Style Document</title>
+</head>
+
+<body>
+    <p style="color:blue;font-size:large;">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate velit totam fuga nemo, veniam non. Iure tempora ducimus nemo laborum, obcaecati nisi perferendis repellendus aperiam maxime repudiandae, nam molestiae enim.
+    </p>
+</body>
+
+</html>
+===============================================================================================
+Ex10: tag selector
+====================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightcyan;
+        }
+        
+        h1 {
+            color: blue;
+        }
+        
+        h3 {
+            font-family: 'Lucida Sans',  sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Profile Page</h1>
+    <hr>
+    <img src="./images/blank-profile.png" alt="profile" />
+    <a href="https://www.linkedin.com/">
+        <h3>Technical Specialist</h3>
+    </a>
+</body>
+
+</html>
+
+Note : create a images folder and place blank-profile.png file
+=============================================================================================== 

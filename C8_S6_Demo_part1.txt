@@ -1,0 +1,338 @@
+EX1: Media query
+================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive web design using Media Queries</title>
+    <style>
+        .wrapper {
+            overflow: auto;
+        }
+        
+        #main {
+            margin-left: 4px;
+        }
+        
+        #leftsidebar {
+            float: none;
+            width: auto;
+        }
+        
+        #menulist {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .menuitem {
+            background: lightgray;
+            border: 1px solid #d4d4d4;
+            border-radius: 4px;
+            list-style-type: none;
+            margin: 4px;
+            padding: 2px;
+        }
+        
+        /*@media <type> and media feature expressions*/
+        /*type can be all, print, screen or speech*/
+        @media screen and (min-width: 480px) {
+            #leftsidebar {
+                width: 200px;
+                float: left;
+            }
+            #main {
+                margin-left: 416px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="leftsidebar">
+            <ul id="menulist">
+                <li class="menuitem">Deal of the day!</li>
+                <li class="menuitem">Products</li>
+                <li class="menuitem">Categories</li>
+                <li class="menuitem">Top deals</li>
+                <li class="menuitem">Contact Us</li>
+            </ul>
+        </div>
+
+        <div id="main">
+            <h1>Resize the browser window to see the effect!</h1>
+            <p>This demo shows a menu that will float to the left of the page if the viewport is 480 pixels wide or wider. If the viewport is less than 480 pixels, the menu will be on top of the content.</p>
+        </div>
+    </div>
+</body>
+
+</html>
+============================================================================================
+EX2: Flexible image
+===================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./images/office.jpg" width="460" height="345" >
+    <p>Resize the browser window to see how the image will scale when the width is less than 460px.</p>
+</body>
+
+</html>
+============================================================================================
+EX3: different pic on different device
+======================================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* For width smaller than 467px: */
+        
+        body {
+            background-repeat: no-repeat;
+            background-image: url('./images/flower.jpg');
+        }
+        /* For width 400px and larger: */
+        
+        @media only screen and (min-width: 467px) {
+            body {
+                background-image: url('./images/tree_with_flowers.jpg');
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p style="margin-top:460px;">Resize the browser width and the background image will change at 467px.</p>
+</body>
+
+</html>
+=====================================================================================
+EX4: Picture 
+============
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <picture>
+        <source srcset="./images/flower.jpg" media="(max-width: 467px)">
+        <source srcset="./images/tree_with_flowers.jpg">
+        <img alt="Flowers" style="width:auto;">
+    </picture>
+
+    <p>Resize the browser width and the background image will change at 467px.</p>
+</body>
+
+</html>
+=============================================================================================
+EX5: fluid grid
+===============
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  SECTIONS  */
+        
+        .section {
+            padding: 0;
+            margin: 0;
+        }
+        /*  COLUMN SETUP  */
+        
+        .col {
+            display: block;
+            float: left;
+            margin: 1% 0 1% 1%;
+            padding:10px;
+            box-sizing: border-box;
+            background-color: #aaa;
+        }
+        
+        .col:first-child {
+            margin-left: 0;
+        }
+        /*  GROUPING  */
+        .group:before,
+        .group:after {
+            content: "";
+            display: block;
+        }
+        
+        .group:after {
+            clear: both;
+        }
+        
+        /*  GRID OF THREE  */
+       .span_1_of_3 {
+            width: 32.2%;
+            border-right: 2px solid black;
+        }
+
+        .span_2_of_3 {
+            width: 66.1%;
+            border-right: 2px solid black;
+        }
+
+        .span_3_of_3 {
+            margin-left:0;
+            width: 99.4%;
+        }
+        
+        /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+        
+        @media only screen and (max-width: 480px) {
+            .col {
+                margin: 1% 0 1% 0%;
+            }
+            .span_3_of_3,
+            .span_2_of_3,
+            .span_1_of_3 {
+                width: 100%;
+                border: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section group">
+        <div class="col span_1_of_3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quam aliquam explicabo ratione inventore quasi beatae maxime temporibus non. Inventore fugit praesentium sint beatae, saepe blanditiis consequatur ea esse dicta!
+        </div> 
+        <div class="col span_2_of_3">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum animi fugiat, veritatis tempora praesentium optio quae mollitia vero! Quas aperiam voluptates non alias dolorem suscipit modi consectetur quasi nisi recusandae.
+        </div>
+        <div class="col span_3_of_3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates laborum sint aperiam, vero non optio esse iusto tempora, sequi quod sit nostrum exercitationem alias. In quam nostrum laudantium officia ipsum!
+        </div>
+    </div>
+   
+</body>
+
+</html>
+===============================================================================================
+EX6: Flex container demo1
+==========================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width:90%;
+            max-width: 960px;
+            margin: 10px auto;
+        }
+
+        .cards img {
+            margin: 10px;
+            border: 3px solid #000;
+            box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
+            max-width: 23vw;
+        }
+        .cards {
+            display: flex;
+              flex-direction:column;  
+            max-height:100vh;
+              /* flex-wrap: wrap;   
+            flex-flow : column wrap;  */
+        }
+
+    </style>
+</head>
+
+<body>
+    <main class="cards">
+        <img src="./images/tree_with_flowers.jpg" alt="Photo">
+        <img src="./images/beach.jpg" alt="Photo">
+        <img src="./images/bird.jpg" alt="Photo">
+        <img src="./images/img_chania.jpg" alt="Photo">
+        <img src="./images/flower.jpg" alt="Photo">
+        <img src="./images/auto.jpg" alt="Photo">
+    </main>
+</body>
+
+</html>
+=================================================================================================
+EX7: Flex container demo2
+=========================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 70%;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        button {
+            font-size: 18px;
+            line-height: 1.5;
+            width: 15%;
+        }
+
+        .main {
+            height: 100px;
+            border: 1px solid black;
+            display: flex;
+            align-items:center;
+            justify-content: space-evenly;
+       }
+
+       button:first-child{
+           align-self:flex-end;
+       }
+       
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <button>Smile</button>
+        <button>Laugh</button>
+        <button>Wink</button>
+        <button>Blush</button>
+        <button>Shrug</button>
+    </main>
+</body>
+
+</html>
+============================================================================================

@@ -1,0 +1,419 @@
+Ex1: border
+============
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin-top: 80px;
+            margin-left: 30px;
+            border-top: 5px dotted red;
+            border-right: 1px solid black;
+            border-bottom: 20px double green;
+            width: 20vw;
+            height: 13vh;
+            padding: 10px;
+        }
+        
+        .box {
+            border: 1px solid #333333;
+            border-top-style: dotted;
+            border-right-width: 20px;
+            border-bottom-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">Change my borders.</div>
+    </div>
+</body>
+
+</html>
+======================================================
+Ex2: box-model
+==============
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Demo</title>
+    <style>
+        .box {
+            background-color: lightgray;
+            border: 5px solid rebeccapurple;
+            padding: 40px;
+            margin: 40px;
+            width: 300px;
+            height: 150px;
+        }
+        
+        .alternate {
+            box-sizing: border-box;
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="box">I use the standard box model.</div>
+    <div class="box alternate">I use the alternate box model.</div>
+</body>
+
+</html>
+==========================================================================================
+EX3: box model and inline box 
+=============================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Boxes</title>
+    <style>
+        span {
+            margin: 20px;
+            padding: 20px;
+            width: 40px;
+            height: 25px; 
+            background-color: lightpink;
+            border: 2px solid purple;
+            display: inline-block;
+           
+        }
+        
+        p {
+            width: 18vw;
+            border: 2px solid blue;
+            padding: 5px;
+            margin-left: 40px;
+            margin-top:40px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        This is a paragraph and here is a <span>span</span> inside that paragraph. A span is an inline element and hence does not respect width and height.
+    </p>
+
+</body>
+
+</html>
+=============================================================================================
+Ex4: CSS Specificity
+====================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity</title>
+    <style>
+        /*Latest rule is applied*/
+        h1 {
+            background-color: yellow;
+        }
+        
+        h1 {
+            background-color: red;
+        }
+        
+        /*Class selectors have higher specificity than element selectors*/
+        p {
+            color: yellow;
+        }
+        
+        .para1 {
+            color: green;
+        }
+
+
+        /* ID selectors have a higher specificity than attribute selectors*/
+        #para2 {
+            color: red;
+        }
+        
+        div[id=para2] {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Work with CSS Specificity</h1>
+    <p class="para1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nemo eum incidunt in est placeat rerum unde, culpa esse perferendis praesentium porro, enim officia molestias veniam? Expedita amet nulla id!
+    </p>
+    <div>
+        <p id="para2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae perspiciatis architecto modi rem similique sunt sapiente obcaecati non doloremque omnis. Et beatae perferendis, maxime at commodi alias magni quis veritatis.
+        </p>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur non amet veritatis nobis cumque aut soluta nihil accusamus quam nemo! Excepturi, officiis illum cupiditate facilis nam labore beatae assumenda? Excepturi!
+    </p>
+</body>
+
+</html>
+=====================================================================================
+EX5: display types 
+==================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Different types of display</title>
+    <style>
+        p,
+        ul {
+            border: 2px solid blue;
+            padding: .5em;
+            width: 40vw;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+        
+        .block,
+        li {
+            border: 2px solid rebeccapurple;
+            padding: .5em;
+        }
+        
+        ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .block {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <p>This is a short paragraph.</p>
+    <ul>
+        <li>Apple</li>
+        <li>Samsung</li>
+        <li>Oppo</li>
+    </ul>
+    <p>This is second paragraph. Some of the <span class="block">contents</span> have been wrapped in a <span>span element</span>.</p>
+</body>
+
+</html>
+====================================================================================================
+EX6: Embedded style higher priority 
+===================================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nemo voluptatibus ab totam hic, consectetur nam quibusdam repellat autem, porro quasi earum officia illo atque nesciunt qui et maxime cupiditate.
+    </p>
+</body>
+
+</html>
+
+note : place style.css under css folder 
+
+p {
+    color: yellow;
+}
+
+h1 {
+    color: purple !important
+}
+
+==================================================================================================
+EX7: important exception
+========================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .myclass {
+            color: red;
+        }
+        
+        #myid {
+            color: blue;
+        }
+        
+        p {
+            color: green !important
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color:red;">Main Heading</h1>
+    <p class="myclass" id="myid">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, pariatur, eius dolores animi debitis quidem sit harum voluptatem quibusdam expedita asperiores non explicabo cumque in praesentium ipsam cupiditate! Aut, iusto.
+    </p>
+</body>
+
+</html>
+
+note : place style.css under css folder 
+
+p {
+    color: yellow;
+}
+
+h1 {
+    color: purple !important
+}
+
+===============================================================================================
+EX8: margin
+============
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working of Margin</title>
+    <style>
+        .container {
+            margin-top: 80px;
+            margin-left:30px;
+            width: 550px;
+            height: 200px;
+            border: 5px solid rebeccapurple;
+            background-color: lightyellow;
+        }
+        
+        .box {
+            margin-top: -40px;
+            margin-right: 30px;
+            margin-bottom: 40px;
+            margin-left: 4em;/*1em=16px*/
+            width: 400px;
+            height: 150px;
+            border: 5px solid blue;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">Change my margin.</div>
+    </div>
+</body>
+
+</html>
+===================================================================================================
+EX9: margin collapsing 
+======================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin collapsing</title>
+    <style>
+        .container {
+            margin-top: 60px;
+            margin-left: 30px;
+            width: 25vw;
+            height: 23vh;
+            border: 5px solid rebeccapurple;
+            background-color: lightyellow;
+        }
+        
+        p {
+            border: 5px solid blue;
+            background-color: lightgray;
+        }
+        
+        .one {
+            margin-bottom: 50px;
+        }
+        
+        .two {
+            margin-top: -30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="one">I am paragraph one.</p>
+        <p class="two">I am paragraph two.</p>
+    </div>
+</body>
+
+</html>
+========================================================================================
+EX10: padding
+=============
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Padding</title>
+    <style>
+        .box {
+            border: 5px solid blue;
+            background-color: lightgray;
+            padding-top: 0;
+            padding-right: 30px;
+            padding-bottom: 40px;
+            padding-left: 4em;
+        }
+        
+        .container {
+            margin-top: 40px;
+            margin-left: 30px;
+            width: 20vw;
+            height: 13vh;
+            border: 5px solid rebeccapurple;
+            background-color: lightyellow;
+            padding: 20px;/*top right bottom left*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">Change my padding.</div>
+    </div>
+</body>
+
+</html>
+================================================================================================ 
