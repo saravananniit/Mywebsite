@@ -1,0 +1,104 @@
+What is a section in HTML?
+==========================
+In HTML, a section is a semantic element for creating standalone sections in a web page. 
+
+These sections should be made up of related content, like contact information.
+
+The section element should only be used if there isn't a more specific element to represent the related content. 
+
+For example, you wouldn’t use a section element to group navigational links together — you’d use the nav element instead. 
+
+But you would use the section element to divide up a one-page website or a lengthy terms and conditions agreement.
+
+============================================================================================
+What is the difference between article and section in HTML5?
+
+An article and section element are both semantic elements in HTML5. 
+
+That means they both convey the meaning of the elements they contain. This helps search engines, browsers, assistive technologies, and other developers understand the different parts of a web page. 
+
+So when does it make sense to use an article over a section element?
+
+An article should be used to represent a unit of content on a web page that could, in principle, exist on its own or be reused. 
+
+For example, a blog post, forum post, or magazine or newspaper article should be marked up with the article element.
+
+A section, on the other hand, should be used to represent a section of a document that is related to the same theme but is not independently distributable or reusable. 
+
+The introduction, news items, and contact information on a homepage, for example, should be marked up with section elements.  
+
+===============================================================================================
+What is the difference between div and section in HTML5?
+
+A div and section element are both used to divide a web page into sections. 
+
+But the div is a semantically neutral element, whereas the section element is not.
+
+What does that mean exactly? Basically, a div doesn’t describe the content it contains. 
+Other elements like the article, nav, header, and footer clearly describe the content they contain and are known as semantic elements. 
+
+A section element is also considered a semantic element because it represents a section of a document that is related to the same general concept.  
+
+Since a div has no semantic meaning, it is called a generic container element and should only be used to group elements together for styling, or presentational, purposes. 
+
+Otherwise, you should use a section, or another semantic element, to explain what that part of the page is about to search engines, browsers, assistive technologies, and other developers. This will make your code more accessible and easier to maintain
+
+==============================================================================================
+Example : 
+
+HTML doc is split into two sections. Each contains a heading and paragraph.
+
+To use sections in HTML, wrap the related elements you want to group together in section tags. Most sections should contain a heading.  
+
+<h1>Homepage</h1>
+<section>
+  <h2>About Us</h2>
+  <p>Lollipop123 is an independent magazine that celebrates the writing of teens. We publish original work about the exciting and sometimes unpleasant phases of childhood. Originally created in 2015, the magazine collects stories, essays, and interviews about growing up. </p>
+</section>
+
+<section>
+  <h2>Contact Us</h2>
+  <p>To be a contributor for future projects, please say hello@lollipop123.com.
+  </p>
+</section>
+=======================================================================================
+Ex: an article element contains three nested sections. Each section contains a heading and paragraph.
+
+<article>
+ <hgroup>
+  <h1>The Game Room</h1>
+  <h2>Lots of games</h2>
+ </hgroup>
+  <p>Recommendations to bring on vacation.</p>
+
+ <section>
+ <h2>Exploding Kittens</h2>
+   <p>Hilarious card game for the whole family. Bla dee bla, dee bla dee bla.Bla dee bla, dee bla dee bla.</p>
+ </section>
+
+ <section>
+   <h2>Catchphrase</h2>
+   <p>Charades meets Hot Potato! Super competitive but fun. Bla dee bla, dee bla dee bla.Bla dee bla, dee bla dee bla.</p>
+ </section>
+
+ <section>
+   <h2>Rummy</h2>
+   <p>Another card game. Only need a deck of cards. Bla dee bla, dee bla dee bla.Bla dee bla, dee bla dee bla.</p>
+ </section>
+</article>
+========================================================================================
+How to Hide a Section in HTML
+
+<section style="display:none;"> 
+<section style="visibility:hidden;"> -> gives space in layout
+=========================================================================================
+
+boiler plate ?
+structure  ?
+===========================================================================================
+
+index.html is empty no boiler plate, we can go as per requirement
+index.html is given with partial code / partial structure (boiler plate)
+dont change boiler plate.
+you can go with any structure
+===========================================================================================

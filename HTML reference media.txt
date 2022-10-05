@@ -1,0 +1,397 @@
+https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background-color: yellow;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>The @media Rule</h1>
+
+<p>Resize the browser window. When the width of this document is 600 pixels or less, the background-color is "lightblue", otherwise it is "yellow".</p>
+
+</body>
+</html>
+=======================================================================================
+Media queries can be used to check many things, such as:
+
+width and height of the viewport
+width and height of the device
+orientation (is the tablet/phone in landscape or portrait mode?)
+resolution
+
+========================================================================================
+
+using media queries are a popular technique for delivering a tailored style sheet (responsive web design) to desktops, laptops, tablets, and mobile phones.
+
+You can also use media queries to specify that certain styles are only for printed documents or for screen readers (mediatype: print, screen, or speech).
+
+In addition to media types, there are also media features. Media features provide more specific details to media queries, by allowing to test for a specific feature of the user agent or display device. For example, you can apply styles to only those screens that are greater, or smaller, than a certain width.
+=========================================================================================
+
+Syntax:
+
+@media not|only mediatype and (mediafeature and|or|not mediafeature) {
+  CSS-Code;
+}
+
+meaning of the not, only and and keywords:
+
+not: The not keyword inverts the meaning of an entire media query.
+
+only: The only keyword prevents older browsers that do not support media queries with media features from applying the specified styles. It has no effect on modern browsers.
+
+and: The and keyword combines a media feature with a media type or other media features.
+
+They are all optional. However, if you use not or only, you must also specify a media type.
+===========================================================================================
+
+different stylesheets for different media, like this
+
+<link rel="stylesheet" media="screen and (min-width: 900px)" href="widescreen.css">
+<link rel="stylesheet" media="screen and (max-width: 600px)" href="smallscreen.css">
+....
+============================================================================================
+Media Types
+Value	Description
+all	Default. Used for all media type devices
+print	Used for printers
+screen	Used for computer screens, tablets, smart-phones etc.
+speech	Used for screenreaders that "reads" the page out loud
+========================================================================================
+
+Media Features
+Value		Description
+
+any-hover	Does any available input mechanism allow the user to hover over elements? (added in Media 			Queries Level 4)
+any-pointer	Is any available input mechanism a pointing device, and if so, how accurate is it? (added in 			Media Queries Level 4)
+aspect-ratio	The ratio between the width and the height of the viewport
+color		The number of bits per color component for the output device
+color-gamut	The approximate range of colors that are supported by the user agent and output device (added 			in Media Queries Level 4)
+color-index	The number of colors the device can display
+grid		Whether the device is a grid or bitmap
+height		The viewport height
+hover		Does the primary input mechanism allow the user to hover over elements? (added in Media Queries 		Level 4)
+inverted-colors	Is the browser or underlying OS inverting colors? (added in Media Queries Level 4)
+light-level	Current ambient light level (added in Media Queries Level 4)
+max-aspect-ratio	The maximum ratio between the width and the height of the display area
+max-color	The maximum number of bits per color component for the output device
+max-color-index	The maximum number of colors the device can display
+max-height	The maximum height of the display area, such as a browser window
+max-monochrome	The maximum number of bits per "color" on a monochrome (greyscale) device
+max-resolution	The maximum resolution of the device, using dpi or dpcm
+max-width	The maximum width of the display area, such as a browser window
+min-aspect-ratio	The minimum ratio between the width and the height of the display area
+min-color	The minimum number of bits per color component for the output device
+min-color-index	The minimum number of colors the device can display
+min-height	The minimum height of the display area, such as a browser window
+min-monochrome	The minimum number of bits per "color" on a monochrome (greyscale) device
+min-resolution	The minimum resolution of the device, using dpi or dpcm
+min-width	The minimum width of the display area, such as a browser window
+monochrome	The number of bits per "color" on a monochrome (greyscale) device
+orientation	The orientation of the viewport (landscape or portrait mode)
+overflow-block	How does the output device handle content that overflows the viewport along the block axis 			(added in Media Queries Level 4)
+overflow-inline	Can content that overflows the viewport along the inline axis be scrolled (added in Media 			Queries Level 4)
+pointer		Is the primary input mechanism a pointing device, and if so, how accurate is it? (added in 			Media Queries Level 4)
+resolution	The resolution of the output device, using dpi or dpcm
+scan		The scanning process of the output device
+scripting	Is scripting (e.g. JavaScript) available? (added in Media Queries Level 4)
+update		How quickly can the output device modify the appearance of the content (added in Media Queries 			Level 4)
+width		The viewport width
+======================================================================================================
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+div.example {
+  background-color: yellow;
+  padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  div.example {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Hide elements on different screen sizes</h2>
+
+<div class="example">Example DIV.</div>
+
+<p>When the browser's width is 600px wide or less, hide the div element. Resize the browser window to see the effect.</p>
+
+</body>
+</html>
+====================================================================================
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    background-color: lavender;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>Resize the browser window to see the effect!</h1>
+<p>Use mediaqueries to set the background-color to lavender if the viewport is 800 pixels wide or wider, to lightgreen if the viewport is between 400 and 799 pixels wide. If the viewport is smaller than 400 pixels, the background-color is lightblue.</p>
+
+</body>
+</html>
+
+=================================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* On screens that are 600px wide or less, make the menu links stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Responsive navigation menu</h2>
+<p>Resize the browser window to see the effect: When the screen is less than 600px, the navigation menu will be displayed vertically instead of horizontally.</p>
+
+<div class="topnav">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+</body>
+</html>
+
+====================================================================================================
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Responsive Four Column Layout</h2>
+<p><strong>Resize the browser window to see the responsive effect.</strong> On screens that are 992px wide or less, the columns will resize from four columns to two columns. On screens that are 600px wide or less, the columns will stack on top of each other instead of next to eachother.</p>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+  <h2>Column 1</h2>
+  <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+  <h2>Column 2</h2>
+  <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#ccc;">
+  <h2>Column 3</h2>
+  <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#ddd;">
+  <h2>Column 4</h2>
+  <p>Some text..</p>
+  </div>
+</div>
+
+</body>
+</html>
+
+====================================================================================================
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background-color: lightgreen;
+}
+
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
+</style>
+</head>
+<body>
+
+<p>Resize the browser window. When the width of this document is larger than the height, the background-color is "lightblue", otherwise it is "lightgreen".</p>
+
+</body>
+</html>
+
+
+=================================================================================
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@media screen {
+  body {
+    color: green; 
+  }
+}
+
+@media print {
+  body {
+    color: black; 
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>The @media Rule</h1>
+<p>Use mediaqueries to set the text color to green when the document is displayed on the screen, and to black when it is printed.</p>
+
+</body>
+</html>
+
+====================================================================
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@media screen and (max-width: 900px) and (min-width: 600px), (min-width: 1100px) {
+  div.example {
+    font-size: 50px;
+    padding: 50px;
+    border: 8px solid black;
+    background: yellow;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Change the appearance of DIV on different screen sizes</h2>
+
+<div class="example">Example DIV.</div>
+
+<p>When the browser's width is between 600 and 900px OR above 1100px, change the appearance of DIV. 
+<strong>Resize the browser window to see the effect</strong>.</p>
+
+</body>
+</html>
+
+====================================================================
+
+https://web.dev/learn/design/
+
+https://eiji.dev/responsive-patterns.html#:~:text=The%20mostly%20fluid%20pattern%20consists%20primarily%20of%20a,content%20to%20reflow%2C%20while%20columns%20are%20stacked%20vertically.
+
+https://www.tisindia.com/blog/responsive-web-design-basic-patterns-principles-examples/
+
+https://web.dev/learn/css/flexbox/
+https://web.dev/learn/css/grid/
+
+https://devopedia.org/css-design-patterns
+
+https://imdac.github.io/modules/css/css-rwd-patterns/#off-canvas
+
+
+
+

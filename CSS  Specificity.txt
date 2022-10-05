@@ -1,0 +1,10 @@
+CSS Specificity:
+
+1. Equal Specificity: latest rule counts
+2. Embedded vs External: Embedded (closer)
+3. ID Selectors have higher Specificity than attribute Selectors
+4. class selectors overrides any number of element selectors
+5. Important Exception
+6. if we used id and class in the element, id has high specificity
+=======================================
+

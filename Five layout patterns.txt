@@ -1,0 +1,11 @@
+In 2019, LePage used Flexbox and media queries to implement five layout patterns:
+
+Mostly Fluid: On small screens, content reflows and columns stack vertically. On bigger screens, margins are adjusted.
+
+Column Drop: Columns stack vertically on smaller screens.
+
+Layout Shifter: Content moves around when screen sizes change. Most responsive with many breakpoints but also more complex to maintain.
+
+Tiny Tweaks: Only small changes involving font sizes, image dimensions, or content offsets.
+
+Off Canvas: On smaller screens, less frequently used content is kept off-screen but accessible with a single click.
