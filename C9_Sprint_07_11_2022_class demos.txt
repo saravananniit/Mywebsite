@@ -1,0 +1,269 @@
+Jasmine is Behavior Driven Js testing framework.
+
+TDD -> Test Driven Development
+BDD -> Behavior Driven Development
+
+TDD focus on functionality of components.
+
+BDD focus on behavior of code components.
+
+
+Test first approach can be implemented
+using TDD or BDD
+========================================================
+Software Eng. (SDLC)
+waterfall : Developer, tester, BA, Project manager
+Agile : Product owner, Scrum master and Scrum team
+===================================================
+BDD is to involve Client in Test Discussions.
+===================================================
+
+Ask question
+In Behavior : BDD
+===================================================
+where to Start 
+what do you test
+How much test in one go
+what do you call these test
+understand test fail or test success.
+
+When we answer the above question.
+
+We are creating BDD spec.
+
+==================================================
+mismatch between accepted and expected outcomes.
+=================================================
+
+BDD Spec
+=========
+User story
+
+acceptance -> Scenario
+
+Scenario takes :
+
+Given -> some initial context
+When  -> an event occurs 
+Then  -> ensure outcomes
+
+outcome : BDD Specification is created
+	
+==================================================
+https://jasmine.github.io/
+
+Jasmine :
+
+Jasmine is a behavior-driven development framework for testing JavaScript code. It does not depend on any other JavaScript frameworks. It does not require a DOM. And it has a clean, obvious syntax so that you can easily write tests.
+
+sample test case for BDD spec :
+=====================================
+describe -> Test Suite
+it -> Spec
+expect -> to check the expected outcome
+Inbuilt matcher function -> toBe()
+========================================
+describe syntax: name,function
+it syntax : name,function
+rule : Any test suite should have min one spec.
+=======================================
+Test is pass :
+
+describe("example1", function() {
+  let a;
+
+  it("sample spec", function() {
+    a = true;
+
+    expect(a).toBe(true);
+  });
+});
+
+Test to fail :
+
+describe("example1", function() {
+  let a;
+
+  it("sample spec", function() {
+    a = false;
+    expect(a).toBe(true);
+  });
+});
+
+
+==================================================
+To download Jasmine : https://github.com/jasmine/jasmine/releases/tag/v4.5.0
+
+======================================================
+Extension for Spec is .js
+======================================================
+execute using SpecRunner.html file 
+include your Spec using Script element
+======================================================
+sampleFunction.js
+
+// @ts-nocheck
+window.Calculator = {
+
+    currentVal: 0,
+
+    add: function (num1) {
+        this.currentVal += num1;
+        return this.currentVal;
+    },
+
+    addAny: function () {
+
+        var sum = this.currentVal;
+        for (var i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return this.currentVal = sum;
+    },
+
+};
+====================================================================
+sampleFunctionSpec.js
+
+// @ts-nocheck
+describe("fun1",function()
+{
+
+// it("test1",function(){
+// expect(Calculator.currentVal).toBeDefined();
+// expect(Calculator.currentVal).toEqual(0);
+// });
+
+// it("test2",function(){
+// expect(Calculator.add(5)).toEqual(5);
+// expect(Calculator.add(5)).toEqual(10);
+// });
+
+it("test3",function(){
+
+    expect(Calculator.addAny(1,2,3)).toEqual(6);
+
+});
+
+});
+=============================================================
+Built in functionality
+=============================================================
+Equality 
+.toEqual();   this is just like ==
+not.toEqual();
+.toBe()       this is just like ===
+not.toBe()
+================================================================
+Boolean
+.toBeTruthy();
+.toBeFalsy();
+==============================================================
+Sequential
+.toContain();
+.toBeCloseTo();
+.toMatch();
+===============================================================
+Null Check
+.toBedefined();
+.toBeundefined();
+.toBeNull();
+=============================================================
+Inequality
+.toBeGreaterThan();
+.toBeLessThan();
+.toBeNan();  example is when you divide by zero (0/0)
+==============================================================
+Error -> throw new Error();
+.toThrow();
+==============================================================
+jasmine.any(Number);
+jasmine.any(String);
+===========================================================
+The input can be taken in two ways :
+
+1. using SRC folder 
+2. directly pass inital value in Spec file itself.
+=============================================================
+beforeEach() and afterEach()
+
+//beforeEach()
+var c=0;
+beforeEach(function(){
+c=5;
+});
+describe("one",function(){
+it("check",function(){
+    expect(c).toEqual(5);
+});
+});
+
+====================================
+//after Each
+
+var c=0;
+afterEach(function(){
+c=5;
+});
+describe("one",function(){
+it("check",function(){
+    expect(c).toEqual(0);
+    // expect(c).toEqual(5);
+});
+});
+
+===========================================
+Jasmine Spy will mimics the functionality
+Two ways :
+spyOn() -> allows you to spy on definite piece of code 
+createSpy() -> allows you spyOn method that does not exist
+
+==============================================================
+Ex: spyOn()
+
+spyOn.js
+========
+var Person=function(){
+
+}
+
+Person.prototype.sayHelloWorld=function(dict){
+
+    return dict.hello()+" "+dict.world();
+}
+
+var Dictonary=function(){
+}
+
+Dictonary.prototype.hello=function(){
+
+    return "hello";
+}
+Dictonary.prototype.world=function(){
+    return "world";
+}
+=================================================
+spyOnSpec.js
+
+// @ts-nocheck
+describe("test1",function(){
+it("one",function(){
+
+    var dictonary=new Dictonary;
+    var person=new Person;
+    spyOn(dictonary,"hello");  //mimics the  hello functionality
+    spyOn(dictonary,"world");  //mimics the world functionality
+    person.sayHelloWorld(dictonary);
+    expect(dictonary.hello).toHaveBeenCalled();
+    expect(dictonary.world).toHaveBeenCalled();
+    
+});
+
+});
+
+============================================================
+
+
+
+
+

@@ -1,0 +1,131 @@
+Java Script : Sprint 2
+======================
+Arrays and Object
+================
+
+Array -> is an Object
+      -> resizable (grow and shrink)
+      -> contain mix of different data types
+      -> Shallow copies
+      -> index starts from zero
+=============================================
+const num=[12,34,56,15,44,66];
+
+let sum=0;
+// for(let i=0;i<num.length;i++)
+// {
+// if(num[i]%2==0)
+// {
+//     sum+=num[i];
+// }
+// }
+// console.log(`sum of even number is ${sum}`);
+for(const j of num)
+{
+if(j%2==0)
+{
+    sum+=j;
+}
+
+}
+console.log(`sum of even number is ${sum}`);
+=======================================================================
+let numbers=["one","two","three","one","four"];
+console.log(numbers.length);
+console.log(numbers);
+// console.dir(numbers);
+numbers.push('five','six');
+console.log(numbers.length);
+console.log(numbers);
+numbers.pop();
+console.log(numbers);
+numbers.unshift('zero');
+console.log(numbers);
+console.log(numbers.indexOf("red"));
+console.log(numbers.indexOf("three"));
+console.log(numbers.lastIndexOf("one"));
+numbers.sort();
+console.log(numbers);
+numbers.reverse();
+console.log(numbers);
+const rainbow=["violet","indigo","yellow","orange","red"];
+ console.log(rainbow);
+// rainbow.splice(2,0,"blue","green");  // insert an element
+// console.log(rainbow);
+// rainbow.splice(2,1);  // delete an element
+// console.log(rainbow);
+// rainbow.splice(2,1,'pink')
+// console.log(rainbow)
+// rainbow.splice(10,0,'purple')
+// console.log(rainbow)
+// const newrainbow=rainbow.slice(3);
+// console.log(newrainbow)
+// console.log(rainbow);
+const n=rainbow.slice(2,4);
+console.log(n);
+//de structure the array
+const color4=["violet","indigo","yellow","orange","red"];
+// let a=color4[0];
+// let b=color4[1];
+// let c=color4[2];
+// let d=color4[3];
+// let e=color4[4];
+const [a,b,c,d,e]=color4;
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+console.log(e);
+========================================================================
+Array: callback function:
+==========================================================================
+map,filter,reduce 
+================
+Ex: map
+const array1=[2,4,6,8,3,5];
+// const result=array1.map(square);
+// console.log(result);
+// function square(x)
+// {
+//     return x*x;
+// }
+//arrow function
+const result2=array1.map(x=>x*x);
+console.log(result2);
+=========================================================================
+ex : filter
+const age=[17,34,23,78,34,22,33];
+// const result=age.filter(checkage);
+// console.log(result);
+// function checkage(age)
+// {
+//     return age>=18;
+// }
+
+// arrow function
+const result=age.filter(age=>age>=18);
+console.log(result);
+
+=======================================================================
+ex : reduce 
+// const array1=[2,4,6];
+// const result=array1.reduce(mul);
+// function mul(result,x)
+// {
+//     return result+x;
+// }
+// console.log(result);
+const array2=[2,4,6];
+const inital=0;
+const result1=array2.reduce((previous,current)=>previous+current,inital);
+console.log(result1);
+========================================================================
+
+
+
+
+
+
+
+
+

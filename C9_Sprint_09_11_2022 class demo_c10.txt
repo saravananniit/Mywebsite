@@ -1,0 +1,131 @@
+
+createSpy() allows us to create
+a spy on (mimics) method that doesnt exist.
+
+Spy:
+It doesnt actually execute the real method.
+src folder
+
+spyOn.js
+=========
+var Person=function(){
+}
+
+Person.prototype.sayHelloWorld=function(dict){
+    return dict.hello()+" "+dict.world();
+}
+
+var Dictonary=function(){
+}
+
+Dictonary.prototype.hello=function(){
+
+    return "hello";
+}
+Dictonary.prototype.world=function(){
+    return "world";
+}
+==============================================================================
+
+spec folder
+
+createSpySpec.js
+
+// @ts-nocheck
+describe("test1 on spy",function(){
+
+it("testing create spy",function(){
+
+var person=new Person();
+person.getName=jasmine.createSpy("Name spy");
+person.getName();
+
+expect(person.getName).toHaveBeenCalled();
+
+})
+
+})
+=================================================================================
+
+Go to SpecRunner.html
+
+enable the script tag.
+
+  <script src="src/spyon.js"></script>
+  <script src="spec/createSpySpec.js"></script>
+  </script>
+
+and run your html file.
+
+==================================================================================
+
+
+describe block -> suite block
+
+ it has two parameter, name and function declaration
+
+==================================================================================
+
+it block -> contains each unit test case inside describe block.
+
+it has two parameter, name and function declaration
+===========================================================================
+structure of describe and it are same.
+=========================================================================
+
+one describe block can have multiple it block.
+
+=========================================================================
+expect block -> one it can have more than one expect 
+
+expect using matcher-> Inbuilt matcher as well as userdefined matcher.
+======================================================================
+
+From sample demo is an example for userdefined matcher.
+
+ expect(player).toBePlaying(song);
+
+=====================================================================
+From sample demo
+
+nesting..
+
+one describe can be placed inside another describe
+
+for every it(one spec) you can nest with describe (test suite).
+====================================================================
+Course 10
+=========
+Sprint1 : TypeScript
+Software installation steps :
+To install:
+npm install -g typescript
+=====================================================================
+To verify the version:
+tsc -v
+=====================================================================
+Extension file for typescript is .ts 
+======================================================================
+.ts is executed by browser (true or false)=> false
+so convert .ts to .js
+tsc filename.ts
+so output is .js file is created.
+======================================================================
+Include this output .js file generated in index.html for execution
+=======================================================================
+one.ts
+======
+console.log("welcome to typescript");
+=======================================================================
+tsc one.ts
+=======================================================================
+one.js will get generated.
+=======================================================================
+include this one.js in index.html
+========================================================================
+
+
+
+
+
+

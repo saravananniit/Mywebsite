@@ -1,0 +1,298 @@
+Ex1 : Axios 
+
+Make API calls and return Promise
+=================================
+create : db.json
+
+json-server --watch db.json
+
+test the resource :  http://localhost:3000/posts
+
+[
+  {
+    "id": 1,
+    "title": "json-server",
+    "author": "typicode"
+  }
+]
+=============================================================
+one.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios demo</title>
+</head>
+
+<body>
+    <h1>Axios demo using JSON</h1>
+    <div id="app"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js">
+    </script>
+    <script src="./scripts.js"></script>
+
+</body>
+
+</html>
+============================================================================
+scripts.js
+
+// @ts-nocheck
+const appDiv = document.getElementById('app');
+appDiv.innerHTML = `<h1> Promise sample given </h1>`;
+let promise = axios('http://localhost:3000/posts');
+promise
+    .then(response => {
+        console.log(response);
+        console.log(response.data);
+        console.log(response.data[0].id);
+        console.log(response.data[0].title);
+        console.log(response.data[0].author);
+        console.log(response.data[1].id);
+        console.log(response.data[1].title);
+        console.log(response.data[1].author);
+        console.log(response.data[2].id);
+        console.log(response.data[2].title);
+        console.log(response.data[2].author);
+       
+        appDiv.innerHTML += `<ul>`;
+        response.data.forEach(element => {
+            appDiv.innerHTML += `<li>` + element.id + ' ' + element.title + ' ' + element.author + `</li>`;
+
+        });
+        appDiv.innerHTML += `</ul>`;
+
+    })
+    .catch(err => {
+        console.log(err);
+    })
+====================================================================
+Ex2: Promise chain
+
+two.html
+========
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise chain</title>
+</head>
+<body>
+    <h1>Promise chain</h1>
+    
+    <script src="./script1.js"></script>
+</body>
+</html>
+
+=========================================================================
+script1.js
+
+// @ts-nocheck
+interval=1000;
+
+function timeoutpromise(interval){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            res();
+        },interval);
+    })
+}
+let promise=timeoutpromise(interval);
+promise
+      .then(()=>{
+       document.body.innerHTML+="1 sec lapsed!";
+       return timeoutpromise(interval);
+      })
+      .then(()=>{
+        document.body.innerHTML+="2 sec lapsed!";
+        return timeoutpromise(interval);
+       })
+       .then(()=>{
+        document.body.innerHTML+="3 sec lapsed!";
+        return timeoutpromise(interval);
+       })
+       .catch(()=>{
+        console.log("inside catch");
+       })
+
+===============================================================================
+EX3 : Understanding Call back hell and replace using Promise
+
+structure : Pyramid of Doom ie) Call back hell
+
+three.html
+=========
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call back hell vs Promise </title>
+</head>
+<body>
+    <h1> Call back hell vs Promise </h1>
+    <script src="./script2.js"></script>
+</body>
+</html>
+====================================================================================
+script2.js
+
+// @ts-nocheck
+addition(2, function (addRes, err) {
+    if (!err) {
+        subtract(addRes, function (subRes, err) {
+            if (!err) {
+                multiplication(subRes, function (mulRes, err) {
+                    console.log(mulRes);
+                });
+            }
+        });
+    }
+});
+
+function addition(val, callback) {
+    callback(val + 5, false);          // value is 7
+}
+function subtract(val, callback) {
+    callback(val - 3, false);         // value is 4       
+
+}
+function multiplication(val, callback) {
+    callback(val * 5, false);            // value is 20
+}
+
+=======================================================
+
+the above code - Call bak hell is replaced using promise.
+
+var promise=new Promise(function(resolve,reject){
+resolve(2);
+});
+
+promise
+.then(addition).then(subtract).then(multiplication).then((msg)=>{
+ console.log(msg);   
+}
+)
+.catch((err)=>{
+console.log(err);
+})
+
+function addition(val){
+    return(val+5);
+}
+function subtract(val){
+    return(val-3);
+}
+function multiplication(val){
+    return(val*5);
+}
+==========================================================
+
+Ex:4 promise.all()
+
+method takes an iterable of promises as input and returns a single promise.
+
+it waits for all fulfillments or the first rejection
+
+four.html
+=========
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise All</title>
+</head>
+<body>
+<h1>Promise all Demo</h1>    
+<script src="./script3.js"></script>
+</body>
+</html>
+=====================================================================
+script3.js
+==========
+
+const promise1=Promise.resolve(3);
+const promise2=42;
+const promise3=new Promise((resolve,reject)=>{
+setTimeout(resolve,5000,'foo');
+});
+
+Promise.all([promise1,promise2,promise3])
+       .then((values)=>{
+        console.log(values);
+       })
+       .catch((err)=>{
+       console.log(err);
+       })
+
+// or
+
+const p3 = Promise.all([1, 2, 3, Promise.resolve(555)]) // change Promise.reject(555) to understand catch block
+    .then((values) => {
+        console.log(values);
+    })
+    .catch((msg) => {
+        console.log(msg)
+    })
+    .finally(() => {
+        console.log("done");
+    })
+
+=====================================================================
+node.js 
+=======
+server side scripting
+
+uses Async prog.
+
+it can run outside the browser
+
+file extension is .js
+
+======================================================================
+to run node application
+
+syntax:
+node filename.js
+
+to execute the below code
+
+node demo.js
+======================================================================
+Example : demo.js
+=================
+// @ts-nocheck
+ console.log("hello");
+
+// var http=require('http');
+// http.createServer(function(req,res){
+//     //adding header
+//     res.writeHead(200, {'Content-Type': 'text/html'});
+//     res.end('hello world, welcome to Node.js');
+// }).listen(8080);
+
+var fs = require('fs');
+fs.writeFile('mynewfile4.txt', 'Hello content!', function (err) {
+  if (err) throw err;
+  console.log('Saved!');
+});
+
+=======================================================================
+
+
+
+
+
+

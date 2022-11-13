@@ -1,0 +1,280 @@
+Demo1:
+======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
+    <script>
+        alert('Hello, world!');
+      </script>
+      <p>...After the script.</p>
+  
+</body>
+</html>
+===================================================================================================
+Demo2:
+======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Demo</title>
+</head>
+<body>
+    <h1>JS demo</h1>
+<script src="./script.js"></script>
+</body>
+</html>
+
+script.js
+=========
+
+let employees = {
+
+    1047: {
+        firstname: 'jhon',
+        lastname: 'chirst',
+        salary: 450,
+        desig: 'SE',
+        hasInsurance: false
+    },
+    1048: {
+        firstname: 'jhon_Rambo',
+        lastname: 'chirst_man',
+        salary: 1450,
+        desig: 'SE',
+        hasInsurance: true
+    }
+
+}
+console.log("Employee list are",employees);
+=========================================================================================
+Demo3:
+======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Demo</title>
+</head>
+<body>
+    <h1>JS demo</h1>
+<script src="./script.js"></script>
+</body>
+</html>
+
+script.js
+=========
+let text = "a quick brown fox"
+let highlightedText = ''
+console.log(text);
+
+for(let character of text)
+    if(character === 'a' || character === 'e' || character === 'i' || character === 'o' || character === 'u')
+        highlightedText += character.toUpperCase();
+    else
+        highlightedText += character;
+
+console.log(highlightedText);
+
+=============================================================================================
+Demo4:
+======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Price</title>
+</head>
+<body>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+script.js
+=========
+
+function add(a){  
+return a+100;
+}
+console.log(add(10));
+let add2=40;
+let add1=(a)=>{
+    return a+20;
+}
+console.log(add1(10));
+
+let add3=(a)=>a+100;  
+let add4=a=>a+100;  
+console.log(add3(50));
+console.log(add4(40));
+
+===================================================================
+Demo5:
+======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JS demo</h1>
+<script>
+const firstname='jhon';
+console.log(typeof(firstname));
+const lastname='jhon';
+console.log(typeof(firstname));
+const fullname=`${firstname} ${lastname}`;
+console.log(fullname);
+console.log(typeof(fullname));
+</script>
+
+</body>
+</html>
+==========================================================================
+Demo6:
+======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+        var message="hai";
+        console.log(message);
+        let message1="hello";
+        console.log(message1);
+    </script>
+    <p>welcome to JS</p>
+</body>
+</html>
+=================================================================================
+Demo7:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Price</title>
+</head>
+<body>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+script.js
+=========
+
+let product ={
+"productId": "1",
+"cost_price": 2450,
+"profit_percent":15,
+"sellingPrice":0
+}
+
+// function calcuateSellingPrice(product){
+// let sellingPrice=product.cost_price+(product.profit_percent/100*product.cost_price);
+// product.sellingPrice=sellingPrice;
+
+// }
+
+const calcuateSellingPrice =  product=>{
+    let sellingPrice=product.cost_price+(product.profit_percent/100*product.cost_price);
+    product.sellingPrice=sellingPrice;
+    
+    }
+calcuateSellingPrice(product);
+console.log(product);
+
+========================================================================================
+Demo8:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Price</title>
+</head>
+<body>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+script.js
+=========
+
+const three="3";
+const jhonage=33;
+let jhonagethreeyearlater=jhonage+three;
+let jhon=three+jhonage;
+console.log(jhonagethreeyearlater+"    "+jhon);
+
+jhonagethreeyearlater=jhonage+three;
+let number=jhonage+3;
+console.log(number);
+console.log(jhonagethreeyearlater);
+
+=================================================================================
+Demo9:
+=====
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Price</title>
+</head>
+<body>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+script.js
+=========
+
+const words=['h','e','l','l','o'];
+for(const i in words)
+{
+    console.log(i);
+}
+for(const i of words)
+{
+    console.log(i);
+}
+
+let X1;
+let y1=X1||0;
+console.log(y1);
+
+function hello(){
+alert('hello');
+
+}
+console.log(hello());
+
+===========================================================================

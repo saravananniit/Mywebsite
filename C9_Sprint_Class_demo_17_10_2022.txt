@@ -1,0 +1,193 @@
+// @ts-nocheck
+//working with arrays
+let products=[
+['apple',400],
+['pen',250],
+['cake',300],
+['pencil',150],
+['bicycle',500],
+['car',150],
+['apple',560],
+['pen',250],
+['car',150],
+['car',150],
+];
+// try to filter the products whose price is >300
+// let filterProduct=products.filter(p=>p[1]>300);
+// console.log(filterProduct);
+
+// try to give discount for the product <=300, 15% (function chain)
+// let discountProduct=products.filter(p=>p[1]<=300)
+//                             .map(p=>[p[0],p[1]-p[1]*.15]);
+//                             console.log(discountProduct);
+
+// to check the prodcut stock, it will give the count (aggregation)
+
+// let productStock=products.reduce((stocks,product)=>{
+//     let productIndex=stocks.map(s=>s[0]).indexOf(product[0]);
+//     if(productIndex>=0){
+//         stocks[productIndex]=[product[0],++stocks[productIndex][1]]
+//     }
+//     else
+//     stocks.push([product[0],1]);
+//     return stocks;
+//     },[]);
+//     console.log(productStock);
+
+// console.log(productStock);
+
+============================================================================
+Ex2:
+// @ts-nocheck
+// Array of Objects
+let products=[
+    {
+        pname:'apple',
+        price:400
+    },
+    {
+        pname:'apple',
+        price:400
+    },
+    {
+        pname:'mango',
+        price:300
+    },
+    {
+        pname:'mango',
+        price:100
+    }
+   
+];
+
+// try to filter the product where price is less than 300
+// let filterProduct=products.filter(p=>p.price<=300);
+// console.log(filterProduct);
+
+// try to give discount to your product 15% for lesser than price Rs.300
+
+// let discountProduct=products.filter(p=>p.price<=300)
+//                             .map(p=>{
+//                              return {
+//                                 "pname":p.pname,
+//                                 "price":p.price-p.price*.15
+//                              }
+
+//                             })
+
+//                             console.log(discountProduct);
+
+let reduceProduct=products.reduce((stocks,product)=>{
+let productIndex=stocks.map(s=>s.pname).indexOf(product.pname);
+if(productIndex>=0)
+{
+    stocks[productIndex].stock+=1;
+}
+else
+stocks.push({
+"pname":product.pname,
+"stock":1
+
+    })
+    return stocks;
+},[]);
+console.log(reduceProduct)
+============================================================================
+Transform data slide no : 42/44 from order, customer => Orders (order+customer)
+Hint : To combine objects :
+
+1.      Object.assign()
+2. ... (spread operator)
+
+=============================================================================
+https://software.hixie.ch/utilities/js/live-dom-viewer/
+==============================================================================
+Sample : Html for Live DOM Viewer
+
+<html>
+<!--This example uses the default bootstrap stylesheet-->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+<!--provides a full-width container that can expand or collapse based on the size of viewport-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-sm-12 col-xs-12">
+        <nav id="navbar">
+          <h3>Technical Documentation</h3>
+          <!--content stacking for smaller screens-->
+          <ul class="nav nav-pills nav-stacked">
+            <!--internal linking to the respective sections-->
+            <a class="nav-link" href="#Introduction" rel="internal">
+                <li>Introduction</li>
+            </a>
+            <a class="nav-link" href="#What_you_should_already_know" rel="internal">
+                <li>What you should already know</li>
+            </a>
+            <a class="nav-link" href="#About_Topic" rel="internal">
+                <li>About the topic</li>
+            </a>
+            <a class="nav-link" href="#Topic_1" rel="internal">
+                <li>Topic 1</li>
+            </a>
+            <a class="nav-link" href="#Topic_2" rel="internal">
+                <li>Topic 2</li>
+            </a>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-md-10 col-sm-12 col-xs-12">
+        <main id="main-doc">
+          <section class="main-section" id="Introduction" >
+            <!--basic styling for the headings, better practice to do the same in a css file as the styling is same for all headers-->
+              <h3 style = "background: black; color: white">Introduction</h3>
+              <article>
+              <p>Some content about the main topic, for example Java documentation introduction about the language
+                  </article>
+          </section>
+          <section class="main-section" id="What_you_should_already_know">
+              <h3 style = "background: black; color: white">What you should already know</h3>
+              <article>
+                  <p>Background information before getting into the topic:</p>
+<!--creating list using html-->
+                  <li>Some list content</li>
+                  <li>Prerequisites.</li>
+                  <li>Workings and assumptions</li>
+                  <p>Any other content to be covered before learning this topic</p>
+                  </artice>
+          </section>
+          <section class="main-section" id="About_Topic">
+              <h3 style = "background: black; color: white">About topic</h3>
+              <article>
+                  <p>More lines about the topic. For example, how the basic functionality works, features etc...</p>
+                  <p>
+                  Technical documentation should be thorough and to the point
+                  </p>
+                  <p>
+                  Write about features, comparisons with other languages etc
+                  </p>
+              </article>
+          </section>
+          <section class="main-section" id="Topic_1">
+              <h3 style = "background: black; color: white">Topic 1</h3>
+              <article>
+                  Getting started with the actual documentation content
+                  <code>This would come in a different color and font indicating lines of code
+                  </code>
+              </article>
+          </section>
+          <section class="main-section" id="Topic_2">
+              <h3 style = "background: black; color: white">Topic 2</h3>
+              <p>
+Another topic about the main topic, for example, if the topic is Java, this could be variables or data types in Java
+              </p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+</html>
+
+===================================================================================================
+
+
+
+    
