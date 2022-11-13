@@ -1,0 +1,4933 @@
+Java Script: Demo
+
+https://www.w3docs.com/learn-javascript.html
+==================================================================================================
+Where to use Script tag ?
+
+When scripts are included in the head they load or run before the content of the page. When you include them in the body they load or run after the preceding html. It's usually good practice to put scripts as close to the end of the body as possible.
+
+if you put script in head, javascript code gets executed even before controls in body tags are rendered. So if you want to keep your scripts in head tag, make sure they are executed once onload is completed.
+
+The script tag can be placed inside two tags: head and body tag. Depends on what the script will do, you can decide where to put it. If you have to manage the DOM and modify some elements, maybe the end of body tag is the right place because it will run after all elements has been loaded otherwise you will receive an error.
+============================================================================================
+What is = in JavaScript?
+Equal to (=) is an assignment operator, which sets the variable on the left of the = to the value of the expression that is on its right. This operator assigns lvalue to rvalue.
+
+For example, Writing a=10 is fine. If we write 10=10, ‘a’ = 10 or ‘a’ = ‘a’, it will result in a reference error.
+============================================================================================
+What is == in JavaScript?
+Double equals (==) is a comparison operator, which transforms the operands having the same type before comparison.
+
+So, when you compare string with a number, JavaScript converts any string to a number. An empty string is always converts to zero. A string with no numeric value is converts to NaN (Not a Number), which returns false.
+===============================================================================================
+What is === in JavaScript?
+=== (Triple equals) is a strict equality comparison operator in JavaScript, which returns false for the values which are not of a similar type. This operator performs type casting for equality. If we compare 2 with “2” using ===, then it will return a false value.
+====================================================================================================
+
+Why use = in JavaScript?
+
+= JavaScript operator assigns a value to the left operand depends on the value of operand available on the right side. The first operand should be a variable.
+The basic assignment operator is =, that assigns the value of one operand to another. That is, a = b assigns the value of b to a.
+=================================================================================================
+
+Why use == in JavaScript?
+
+The == operator is an equality operator. It checks whether its two operands are the same or not by changing expression from one data type to others. You can use == operator in order to compare the identity of two operands even though, they are not of a similar type.
+
+=============================================================================================
+How === Works Exactly?
+
+Strict equality === checks that two values are the same or not.
+Value are not implicitly converted to some other value before comparison.
+If the variable values are of different types, then the values are considered as unequal.
+If the variable are of the same type, are not numeric, and have the same value, they are considered as equal.
+Lastly, If both variable values are numbers, they are considered equal if both are not NaN (Not a Number) and are the same value.
+================================================================================================
+https://chromedino.com/
+
+https://www.nasdaq.com/market-activity
+
+Scope of Variable : 
+
+https://www.w3schools.com/js/js_scope.asp
+https://www.w3docs.com/snippets/javascript/how-to-define-global-variable-in-a-javascript-function.html
+https://www.w3docs.com/learn-javascript/start-using-javascript.html
+https://www.w3docs.com/learn-javascript/javascript-data-types.html
+https://www.w3docs.com/learn-javascript/javascript-loops.html
+==================================================================================================
+In JavaScript we use $ sign and then { } to embed expression in string. It allows multi-line string and string interpolation features.
+==================================================================================================
+
+The only difference between them is the entities they iterate over:
+
+for..in iterates over all enumerable property keys of an object
+for..of iterates over the values of an iterable object. Examples of iterable objects are arrays, strings, and NodeLists.
+=================================================================================================
+
+Array examples :
+
+forEach:
+========
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+
+// expected output: "a"
+// expected output: "b"
+// expected output: "c"
+
+reduce:
+=======
+
+This method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+
+The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial value may be used in its place. Otherwise the array element at index 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
+
+const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (previousValue, currentValue) => previousValue + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
+// expected output: 10
+
+======================================================================================
+
+reverse:
+========
+const array1 = ['one', 'two', 'three'];
+console.log('array1:', array1);
+// expected output: "array1:" Array ["one", "two", "three"]
+
+const reversed = array1.reverse();
+console.log('reversed:', reversed);
+// expected output: "reversed:" Array ["three", "two", "one"]
+
+// Careful: reverse is destructive -- it changes the original array.
+console.log('array1:', array1);
+// expected output: "array1:" Array ["three", "two", "one"]
+
+================================================================================================
+shift:
+======
+
+const array1 = [1, 2, 3];
+
+const firstElement = array1.shift();
+
+console.log(array1);
+// expected output: Array [2, 3]
+
+console.log(firstElement);
+// expected output: 1
+
+==================================================================================================
+slice:
+
+ returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
+
+console.log(animals.slice(-2));
+// expected output: Array ["duck", "elephant"]
+
+console.log(animals.slice(2, -1));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice());
+// expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+==========================================================================
+
+sort :
+
+method sorts the elements of an array in place and returns the reference to the same array, now sorted. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
+
+The time and space complexity of the sort cannot be guaranteed as it depends on the implementation.
+
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+months.sort();
+console.log(months);
+// expected output: Array ["Dec", "Feb", "Jan", "March"]
+
+const array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1);
+// expected output: Array [1, 100000, 21, 30, 4]
+
+=========================================================================
+
+  <script>
+///anonymous
+var num = function (){
+console.log("This is a anonymous  function");
+}
+num();
+
+var num1= function (argu)
+{
+    console.log("This is a anonymous function ",argu);
+}
+num1("NIIT LTD");
+
+const num2=function add(number1)
+{
+    return number1*number1;
+}
+num2(5);
+console.log(`${num2(5)}`);
+console.log(`${num1("sdfsafsd")}`);
+
+    </script>
+
+============================================================================
+
+<script>
+
+// const array1=[2,4,6,8,3,5];
+// const result=array1.map(square);
+// console.log(result);
+
+// function square(x)
+// {
+//     return x*x;
+// }
+
+///Arrow 
+const array1=[2,4,6,8,3,5];
+
+const result=array1.map(x=> x*x);
+
+console.log(result);
+
+
+
+    </script>
+
+========================================================================
+
+  <script>
+
+// const array1=[2,4,6];
+// const result=array1.reduce(mul);
+
+// function mul(result,x)
+// {
+//     return result+x;
+// }
+// console.log(result);
+
+sum=sum*result;
+
+result=0
+result=0+2
+result=2+4
+result=6+6=12
+
+const array1=[2,4,6];
+const initial=0;
+const result=array1.reduce((previous,current)=> previous+current, initial
+);
+
+
+console.log(result);
+
+
+
+    </script>
+
+===========================================================================
+
+  <script>
+        var num=10;
+        console.log(num);
+        {
+            var num=100;
+            console.log(num);
+            {
+                num=1000
+                console.log(num);
+            }
+        }
+        console.log(num)
+        console.log(typeof(num))
+        let name='Ramesh';
+        console.log(typeof(name))
+        let logic=true;
+        console.log(typeof(logic));
+
+    </script>
+==============================
+  <script>
+        let num=20;
+        console.log(num);
+        {
+            let test=200;
+            console.log(test);
+        }
+        console.log(test);
+    </script>
+============================
+  <script>
+        var fname="Sachin";
+        var lname="Tendulkar";
+        const fullname=`${fname}<==>${lname}`;
+        console.log(fullname);
+    </script>
+
+=============================
+  <script>
+        var num1=23;
+        var num2=7;
+        var msg='Hello';
+        console.log((msg+(num1+num2)));
+        console.log(num1+num2+msg);
+    </script>
+==================================
+<body>
+    <h1>Arrays Declarations</h1>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <h1 id="demo4"></h1>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+<script>
+const fruits=["Apple", "Mango", "Banana"];
+let fruits1=["Big Apple", "Big Mango", "Big Banana"];
+const fruits2=["Apple","Mango","Banana"];
+const fruits3= new Array("mango","kiwi","payapa","Green Apple","water melon","strawberry");
+document.getElementById("demo1").innerHTML=fruits;
+document.getElementById("demo2").innerHTML=fruits1;
+document.getElementById("demo3").innerHTML=fruits2;
+document.getElementById("demo4").innerHTML=fruits3[fruits3.length-1];
+let flen=fruits3.length;
+console.log(`${flen}`)
+// document.getElementById("demo4").innerHTML=fruits3.length;
+let text="<ul>";
+///For loop
+for(let i=3;i<flen;i++)
+{
+    text+="<li>"+fruits3[i]+"</li>";
+}
+text+="</ul>";
+document.getElementById("demo5").innerHTML=text;
+
+//For Each Loop
+let fruitstring="<ul>";
+for(const i of fruits3)
+{
+    fruitstring+="<li>"+i+"</li>";
+}
+
+fruitstring+="</ul>"
+document.getElementById("demo6").innerHTML=fruitstring;
+</script>
+</body>
+===============================================================================
+
+ <script>
+
+const num=[12,42,45,22,15,67,43,23,67,99,87,66,54,32,11,34];
+let sum=0;
+
+for(let i=0;i<num.length;i++)
+{
+    if(num[i]%2==0)
+    {
+sum+=num[i];
+    }
+}
+console.log(`sum of even number is ${sum}`);/////262
+
+// sum=0;
+for(const j of num)
+{
+    if(j%2==0)
+    sum+=j;
+}
+
+console.log(`sum of even number is ${sum}`);/////524
+    </script>
+
+==================================================================================
+
+<script>
+let numbers=["one","two","three","four"];
+console.log(numbers);
+console.log(numbers.length);
+numbers.push('five','six');        ////adding elements to the end of the array
+console.log(numbers);
+console.log(numbers.length);
+
+let popedelements=numbers.pop();
+console.log(popedelements);
+console.log(numbers);
+
+//add element to the begining of array
+numbers.unshift('zero');
+console.log(numbers);
+
+//searching for elements
+const colors=["Violet","indigo","blue","green","yellow","orange","red","gray","Black"];
+console.log(colors.indexOf("red"));
+
+const colors1=["Violet","indigo","blue","green","yellow","orange","red","gray","Black","red","blue","Violet"];
+console.log(colors1.lastIndexOf("Violet"));
+
+//Sort ascend
+const colors2=["Violet","indigo","blue","green","yellow","orange","red","gray","Black","red","blue","Violet"];
+colors2.sort();
+console.log(colors2);
+
+const num=[12,42,45,22,15,67,43,23,67,99,87,66,54,32,11,34];
+num.sort();
+console.log(num);
+////sort in reverse
+colors2.reverse();
+console.log(colors2);
+
+num.reverse();
+console.log(num);
+/// To add / remove elements in between the array SPLICE
+const rainbow=["Violet","indigo","yellow","orange","red"];
+rainbow.splice(2,0,"blue","green");
+console.log(rainbow);
+
+rainbow.splice(2,1);
+console.log(rainbow);
+
+///SLICE 
+const rainbow1=["Violet","indigo","blue","green","yellow","orange","red","gray","Black","red","blue"];
+const newrainbow=rainbow1.slice(3);
+console.log(newrainbow);
+console.log(rainbow1);
+const n=rainbow1.slice(3,6);
+console.log(n);
+
+//De structure an array
+const colors4=["Violet","indigo","yellow","orange","red"];
+const [a,b,c,d,e]=colors4;
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+console.log(e);
+
+// let a1=color4[0];
+// let b1=color4[1];
+// let c1=color4[2];
+// let d1=color4[3];
+// let e1=color4[4];
+
+
+
+</script>
+===============================================================================
+ <script>
+const area=function (l,b)
+{
+    return l*b;
+}
+console.log("Area of rectangle is ",area(10,20));
+
+// arrow without args
+const area1 = (l,b)=> l*b;
+console.log("Area of rectangle is ",area1(20,30));
+
+const msg=()=> console.log("Arrow Mesage");
+msg();
+
+let square= x=>x*x;
+console.log("Area of square is ",square(20));
+
+    </script>
+
+===================================
+
+<body>
+    
+<h2>Without arrows</h2>
+<p id="d1"> </p>
+<h2>With arrows</h2>
+<p id="d2"> </p>
+
+<script>
+    //anonymous function
+const var1= function ()
+    {
+return "Inside anonymous without arrow";
+    }
+
+    document.getElementById("d1").innerHTML=var1();
+
+
+    //Arrow function
+let var2=" ";
+var2 = ()=> "Inside arrow"
+document.getElementById("d2").innerHTML=var2();
+
+
+
+    //Arrow function
+let var3=" ";
+var3 = (arg)=> arg+ " Inside arrow"
+
+document.getElementById("d2").innerHTML=var3("Passing from HERE");
+
+
+
+
+
+</script>
+
+</body>
+=====================================
+
+<script>
+        var name="gangadhar immadi";
+        for(let i in name)
+        {
+            console.log(i)
+        }
+    </script>
+====================================
+   <script>
+        let text = "a quick brown fox"
+let highlightedText = ''
+console.log(text);
+
+for(let character of text)
+    if(character === 'a' || character === 'e' || character === 'i' || character === 'o' || character === 'u')
+        highlightedText += character.toUpperCase();
+    else
+        highlightedText += character;
+
+console.log(highlightedText);
+
+    </script>
+====================================
+
+Using “for-of” loop to iterate through the object properties
+Using “JSON.parse” and “JSON.stringify”
+Working with “Object.assign” function
+Using “Object.create” to copy objects
+Using recursion for object copying
+
+=======================================
+
+<script>
+        const employee={ 
+            firstname:"Govind", 
+            lastname: "Chowdary",
+            email: "Govind.Chowdary@gmail.com"
+        };   
+        function display()
+{
+console.log("Display From Function");
+console.log(`These are employee Details`);
+console.log(`${employee.firstname}`);
+console.log(`${employee.email}`);
+}
+
+
+        console.log(`These are employee Details`);
+console.log(`${employee.firstname}`);
+console.log(`${employee.email}`);   
+
+//Calling a function and display  
+
+
+//Calling a function by passing an object
+function display1(obj)
+{
+console.log("Display From OBJECT Function");
+console.log(`These are employee Details`);
+console.log(`${obj.firstname}`);
+console.log(`${obj.email}`);
+
+}
+
+display1(employee);
+display();
+
+
+    </script>
+====================================
+
+<p id="demo1">  f </p>    
+<script>
+    const car={
+        make:"BMW",
+        model:"320d",
+        color:"white",
+        year:2019
+    };
+
+   
+
+
+function display(obj)
+{
+console.log("Car Values");   
+console.log(`Make : ${obj.make}`);   
+console.log(`Model: ${obj.model}`);   
+console.log(`Color: ${obj.color}`);
+console.log(`Year: ${obj.year}`);   
+}
+display(car);
+
+const newcar=car;
+
+
+display(newcar);
+newcar.year=2030;
+
+display(car);
+display(newcar);
+const person=new Object();
+    person.name="xyz";
+    person.age="50";
+    person.salary="1000000";
+   
+document.getElementById("demo1").innerHTML=person.name +" his age "+person.age+" his salary"+person.salary;
+
+ 
+</script>
+</body>
+=====================================
+<body>
+    <p id="demo"> </p>
+    <p id="demo1" onclick="demofunction()"><b>Click Here </b>to reveal person details</p>
+    <script>
+
+   const person=new Object();
+        person.name="xyz";
+        person.age="50";
+        person.salary="1000000";
+       
+   //     document.getElementById("demo").innerHTML= person.name +" his age "+person.age+" his salary"+person.salary;
+      
+        function demofunction()
+        {
+            document.getElementById("demo1").innerHTML=person.name +" his age "+person.age+" his salary"+person.salary;
+        }
+
+    </script>
+</body>
+=====================================
+ <script>
+        var studentinfo={
+            1:{ firstname:"Sachin",
+            lastname:"Tendulkar",
+            marks:98,
+            age:42,
+            playstatus:true},
+
+            2:{
+                firstname:"Rahul",
+            lastname:"Dravid",
+            marks:94,
+            age:43,
+            playstatus:false
+            }           
+        };
+        console.log(studentinfo[1]['firstname']);
+        console.log(typeof(studentinfo));
+    </script>
+=================================
+ <script>
+
+
+//         const age=[17,23,11,12,45,23,43,2];
+//         const result=age.filter(checkage);
+// console.log(result);
+// //Call Back function
+//         function checkage(age)
+//         {
+//             return age>=18;
+//         }
+
+//Anonymous function
+// const age=[17,23,11,12,45,23,43,2];
+//         const result=age.filter(function (age)
+//         {
+//             return age>=18;
+//         });
+
+// console.log(result);
+
+  //Arrow function
+  const age=[17,23,11,12,45,23,43,2];
+        const result=age.filter(age=>age>=18);
+
+console.log(result);
+    
+
+
+    </script>
+=================================================================
+let prime_numbers = [2, 3, 5, 7, 9, 11];
+let removedElement = prime_numbers.splice(4, 1, 13);
+console.log(removedElement);
+console.log(prime_numbers);
+
+output :
+
+[ 9 ]
+[ 2, 3, 5, 7, 13, 11 ]
+
+=====================================================
+
+let languages = ["JavaScript", "Python", "Java", "Lua"];
+let removed = languages.splice(2, 2, "C", "C++");
+console.log(removed); 
+console.log(languages); 
+let removed1 = languages.splice(1, 0, "Java", "Lua");
+console.log(removed1); 
+console.log(languages); 
+let removed2 = languages.splice(2, 3);
+console.log(removed2); 
+console.log(languages); 
+
+output :
+
+[ 'Java', 'Lua' ]
+[ 'JavaScript', 'Python', 'C', 'C++' ]
+[]
+[ 'JavaScript', 'Java', 'Lua', 'Python', 'C', 'C++' ]
+[ 'Lua', 'Python', 'C' ]
+[ 'JavaScript', 'Java', 'C++' ]
+
+================================================================
+let languages = ["JavaScript", "Python", "Java", "Lua"];
+let removed = languages.splice(5, 2, "C++");
+console.log(removed); 
+console.log(languages); 
+let removed1 = languages.splice(-1, 1, "Swift", "Scala", "Go");
+console.log(removed1); 
+console.log(languages); 
+
+output :
+
+[]
+[ 'JavaScript', 'Python', 'Java', 'Lua', 'C++' ]
+[ 'C++' ]
+[ 'JavaScript', 'Python', 'Java', 'Lua', 'Swift', 'Scala', 'Go' ]
+=========================================================
+
+let languages = ["JavaScript", "Python", "Java", "Lua"];
+let removed = languages.splice(1);
+console.log(removed); 
+console.log(languages); 
+let removed1 = languages.splice(1, -2, "Swift", "Scala", "Go");
+console.log(removed1); 
+console.log(languages); 
+
+output :
+
+[ 'Python', 'Java', 'Lua' ]
+[ 'JavaScript' ]
+[]
+[ 'JavaScript', 'Swift', 'Scala', 'Go' ]
+==============================================================
+let numbers = [2, 3, 5, 7, 11, 13, 17];
+
+let newArray = numbers.slice(3, 6);
+console.log(newArray);
+
+ Output: 
+
+[ 7, 11, 13 ]
+
+=====================================================
+let languages = ["JavaScript", "Python", "C", "C++", "Java"];
+
+
+let new_arr = languages.slice();
+console.log(new_arr); 
+
+let new_arr1 = languages.slice(2);
+console.log(new_arr1); 
+
+let new_arr2 = languages.slice(1, 4);
+console.log(new_arr2); 
+
+output :
+
+[ 'JavaScript', 'Python', 'C', 'C++', 'Java' ]
+[ 'C', 'C++', 'Java' ]
+[ 'Python', 'C', 'C++' ]
+========================================================
+const languages = ["JavaScript", "Python", "C", "C++", "Java"];
+
+let new_arr = languages.slice(0, -1);
+console.log(new_arr); 
+
+let new_arr1 = languages.slice(-3);
+console.log(new_arr1); 
+
+output :
+
+[ 'JavaScript', 'Python', 'C', 'C++' ]
+[ 'C', 'C++', 'Java' ]
+
+============================================================
+ <script>
+const names=["james","alan","sophia","lawrence", "anderw","alexander","ruby","ariana","bruce","chalrie"];
+let count=0;
+let countnames=names
+.map(x=>x.toUpperCase())
+.filter(x=>x.startsWith('A'))
+.reduce((count,x)=>{
+                    return ++count;
+                    },count);
+
+
+
+
+console.log(countnames);
+
+
+    </script>
+
+
+=====================================================================================
+const names=["james","alan","sophin","andrew","ruby","ariana","bruce"];
+
+const result1=names.map(upper);
+function upper(x)
+{
+    return x.toUpperCase();
+}
+console.log(result1);
+
+const result2=result1.filter(start);
+function start(x)
+{
+
+   return x.startsWith('A');
+}
+console.log(result2);
+// let counter=0;
+// console.log(counter);
+// counter=result2.reduce((prev,cur)=>
+// ++counter,counter);
+// console.log(counter);
+let sum=1;
+console.log(result2.reduce(r));
+function r(prev,cur)
+{ //console.log("inside r "+prev+"  "+cur);
+    return ++sum;
+}
+
+let count=0;
+let countnames=names    
+                    .map(x=>x.toUpperCase())
+                    .filter(x=>x.startsWith('A'))
+                    .reduce((count,x)=>{
+                     return ++count;
+                    },count);
+                    console.log(countnames);
+=======================================================================================
+
+const names=["james","alan","sophin","andrew","ruby","ariana","bruce"];
+
+const result1=names.map(upper);
+function upper(x)
+{
+    return x.toUpperCase();
+}
+console.log(result1);
+
+const result2=result1.filter(start);
+function start(x)
+{
+
+   return x.startsWith('A');
+}
+let sum=1;
+const  result3=result2.reduce(r);
+console.log(result3);
+function r(prev,cur)
+{ //console.log("inside r "+prev+"  "+cur);
+    return ++sum;
+}
+
+let count=0;
+let countnames=names    
+                    .map(x=>x.toUpperCase())
+                    .filter(x=>x.startsWith('A'))
+                    .reduce((count,x)=>{
+                     return ++count;
+                    },count);
+                    console.log(countnames);
+
+=====================================================================================
+
+const names=["james","alan","sophin","andrew","ruby","ariana","bruce"];
+
+const result1=names.map(upper);
+function upper(x)
+{
+    return x.toUpperCase();
+}
+console.log(result1);
+
+const result2=result1.filter(start);
+function start(x)
+{
+
+   return x.startsWith('A');
+}
+let sum=0;
+const  result3=result2.reduce((r),sum);
+console.log(result3);
+function r(prev,curr)
+
+{   
+    console.log("inside r")
+    return ++sum;
+}
+
+let count=0;
+let countnames=names    
+                    .map(x=>x.toUpperCase())
+                    .filter(x=>x.startsWith('A'))
+                    .reduce((count,x)=>{
+                        
+                     return ++count;
+                    },count);
+                    console.log(countnames);
+
+                    
+==============================================================================
+
+
+// const array1=[2,4,6];
+// const result=array1.reduce(mul);
+// function mul(result,x)
+// {
+//     return result+x;
+// }
+// console.log(result);
+
+// const array2=[2,4,6];
+// const inital=10;
+// const result1=array2.reduce((previous,current)=>previous+current,inital);
+// console.log(result1);
+
+const names = ["james", "alan", "sophin", "andrew", "ruby", "ariana", "bruce"];
+
+const result1 = names.map(upper);
+function upper(x) {
+    return x.toUpperCase();
+}
+console.log(result1);
+
+const result2 = result1.filter(start);
+function start(x) {
+
+    return x.startsWith('A');
+}
+let sum = 0;
+const result3 = result2.reduce((r), sum);
+console.log(result3);
+function r(prev, curr,i,result2) {
+    console.log(result2[i]);
+    return sum+=i;
+}
+
+let count = 0;
+let countnames = names
+    .map(x => x.toUpperCase())
+    .filter(x => x.startsWith('A'))
+    .reduce((count, x) => {
+
+        return ++count;
+    }, count);
+console.log(countnames);
+
+
+===============================================================================
+
+sample html for Sprint 3
+
+<html>
+<!--This example uses the default bootstrap stylesheet-->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+<!--provides a full-width container that can expand or collapse based on the size of viewport-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-sm-12 col-xs-12">
+        <nav id="navbar">
+          <h3>Technical Documentation</h3>
+          <!--content stacking for smaller screens-->
+          <ul class="nav nav-pills nav-stacked">
+            <!--internal linking to the respective sections-->
+            <a class="nav-link" href="#Introduction" rel="internal">
+                <li>Introduction</li>
+            </a>
+            <a class="nav-link" href="#What_you_should_already_know" rel="internal">
+                <li>What you should already know</li>
+            </a>
+            <a class="nav-link" href="#About_Topic" rel="internal">
+                <li>About the topic</li>
+            </a>
+            <a class="nav-link" href="#Topic_1" rel="internal">
+                <li>Topic 1</li>
+            </a>
+            <a class="nav-link" href="#Topic_2" rel="internal">
+                <li>Topic 2</li>
+            </a>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-md-10 col-sm-12 col-xs-12">
+        <main id="main-doc">
+          <section class="main-section" id="Introduction" >
+            <!--basic styling for the headings, better practice to do the same in a css file as the styling is same for all headers-->
+              <h3 style = "background: black; color: white">Introduction</h3>
+              <article>
+              <p>Some content about the main topic, for example Java documentation introduction about the language
+                  </article>
+          </section>
+          <section class="main-section" id="What_you_should_already_know">
+            <h3 style = "background: black; color: white">What you should already know</h3>
+              <article>
+                <p>Background information before getting into the topic:</p>
+<!--creating list using html-->
+                <li>Some list content</li>
+                <li>Prerequisites.</li>
+                <li>Workings and assumptions</li>
+                <p>Any other content to be covered before learning this topic</p>
+              </artice>
+          </section>
+          <section class="main-section" id="About_Topic">
+            <h3 style = "background: black; color: white">About topic</h3>
+            <article>
+              <p>More lines about the topic. For example, how the basic functionality works, features etc...</p>
+              <p>
+              Technical documentation should be thorough and to the point
+              </p>
+              <p>
+              Write about features, comparisons with other languages etc
+              </p>
+            </article>
+          </section>
+          <section class="main-section" id="Topic_1">
+            <h3 style = "background: black; color: white">Topic 1</h3>
+            <article>
+                Getting started with the actual documentation content
+                <code>This would come in a different color and font indicating lines of code
+                </code>
+            </article>
+          </section>
+          <section class="main-section" id="Topic_2">
+            <h3 style = "background: black; color: white">Topic 2</h3>
+            <p>Another topic about the main topic, for example, if the topic is Java, this could be variables or data types in Java</p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+
+</html>
+=================================================================================
+
+In JavaScript, variables can be declared using three different methods: var, let, and const.
+
+Variable Declaration in JavaScript
+
+In the early days of JavaScript, there was only one way to declare variables and that was using the var keyword. 
+However, there were some issues associated with variables declared using the var keyword so it was necessary to evolve new ways for variable declaration. With the advent of ES6, now developers are able to define variables according to their specific needs, thanks to two new keywords: let and const.
+
+All three of these three keywords have similarities in their syntax for declaring variables. However, they differ in their usage and scope, as detailed in the next section.
+
+Read: Common Causes of JavaScript Errors and How to Avoid Them
+
+var, let, and const Variable Declaration in JavaScript
+
+The differences between var, let, and const variable declaration in JavaScript include:
+
+Variables declared with var and const are scoped to the immediate function body.
+Variables declared with the var keyword are hoisted. Hoisting means that the variable can be accessed in their enclosing scope even before they are declared.
+Variables declared with the let keyword are block-scoped, which means the variables will have scope to the immediate enclosing block.
+
+
+How to Use the var Keyword in JavaScript
+
+The var keyword has traditional variable declaration syntax. It is optional to initialize a variable with a value if it is declared with the var keyword. If developers do not initialize it with a value, JavaScript will automatically assign undefined to it, as shown in the following code snippet:
+
+var i;  // i is 'undefined'
+ 
+var j = ‘JavaScript’; //initialized with string
+ 
+
+var is Function Scoped
+
+Variables that are declared with var keyword have function scope. Function scoped here means that they can be accessed only inside the function in which they are declared, as showcased in the following JavaScript code example:
+
+function func() 
+{
+    var x = 5;
+ 
+    if(1) 
+    {
+        var y = 10; 
+ 
+        console.log(x); //Output 5
+        console.log(y); //Output 10
+    }
+     
+}
+ 
+func();
+ 
+console.log(x); //undefined. Not available outside function
+console.log(y); //undefined. Not available outside function
+=========================================================================================
+Hoisting of var in JavaScript
+
+Variables declared with the var keyword are subject to hoisting. If we declare a variable (but do not initialize it) at the end of the function, the JavaScript runtime will move it to the top of its scope and, therefore, there will be no complaint by the runtime if we use that variable before being declared.
+
+Issues with var for Variable Declaration
+
+One of the issues is that the variables declared with the var keyword can be re-declared or updated in the same scope. This could lead to a serious problem if we declare another variable with the same name in the same scope; the new value will replace the old one. Check out the following code-snippet for 
+illustration:
+
+var color =”Red”;
+var color= “Green”;
+console.log(“color”); // output Green
+var color=”Blue”;
+console.log(color); // output Blue
+
+Another issue with the var keyword is that if you declare a variable without the keyword var, then that variable will have global scope. To get a better understanding, consider the following code:
+
+for(x = 0; x < array.length; x++){  //index has a global scope
+   //code
+}
+In the above code snippet, the JavaScript for loop will create variable x in the global scope. If you would create a new variable with the same name x and use it somewhere else in the program, then that new variable’s value will get overwritten.
+
+=======================================================================================
+The let Keyword in JavaScript
+
+let is the improved version of var. let eliminates all the issues of var that we have talked about in the previous section. let has a similar syntax to var but has a more strict scope.
+
+let is Block Scoped
+
+The let keyword should be used in situations where you want to declare a variable that should be restricted to the block in which it is restricted. Also, variables declared with the let keyword cannot be updated or re-declared. Here is an example of how to use let to declare variables in JavaScript:
+
+function func() 
+{
+    let x = 10; 
+ 
+    if(x === 10) 
+    {
+        let y = 20; 
+ 
+        console.log(x); //Output 10
+        console.log(y); //Output 20
+    }
+     
+    console.log(x); // Output 10
+    console.log(y); // ’undefined'
+}
+ 
+ 
+func();
+=========================================================================
+Note that the variable y declared with the let keyword is not accessible beyond the if block in which it is declared. If we would have declared it with the var keyword, then it would have been available, because var has global scope within a function. The following code snippet will help you to better understand this train of thought:
+
+function func() 
+{
+    console.log(x);     //Output 'undefined'
+    console.log(y);     //Error - "Uncaught ReferenceError: y is not defined"
+     
+    var x = 10;
+    let y = 20;
+}
+ 
+func();
+=============================================================================================
+Another thing to consider is that let cannot be used before its declaration. If you do so, it will result in a ReferenceError.
+
+Hoisting of let
+Variables declared with the let keyword are not subject to hoisting. This means you cannot use a variable unless it is declared and initialized.
+
+==========================================================================================
+The const Keyword in JavaScript
+
+The const keyword follows the same rules as the let keyword. The only difference with const is that const is used to define only constant values in JavaScript programs.
+
+const myVar = 1000;
+ 
+myVar = 2.5;// Uncaught TypeError: Assignment to constant variable.
+
+const Declarations are Block Scoped
+
+The scoping principles of const are the same as that of the let keyword. Like let, the variables declared with the const keyword will also have scope restricted to the block in which they are declared.
+
+Some important pointers for const include:
+
+const declares a variable with a constant value.
+
+Use the const keyword if the variable that you are declaring should not be allowed to be reassigned in the future.
+================================================================================================
+
+data science (Umberlla) -> multi disciplinary 
+(maths, stat, ML, AI), Big data.
+
+data analytics -> subset of data scienence
+(maths, stat, Info Stat/Mat)
+==================================================
+earlier : past,present  (BI tools)
+current (data science) : past, present and predicts future
+=======================================================
+data : any raw data (structured, unstructed, semi structured).
+
+information : arrange data in a meaning ful manner.
+==========================================================
+Data Wrangling : refered as data munging or data preparation or data evolution.
+
+It is mandatory step in data analytics and data science process.
+
+data science -> meaningful insight.
+
+earlier -> structure data,  BI tools (non tech)
+
+data visual, reporting : Qlik,powerBI,Tableau, Adv. excel
+data science (ML) : python, R prog
+==============================================================
+It enable us to transform the data in an acceptable form and to be used 
+for further analysis.
+===============================================================
+client - Server Technology:
+
+tier -> database reside
+
+1 tier (standalone machine)-> front end and back end reside in the same machine (no network).
+2 tier (LAN to WAN )-> front end (client machine in different location and db server in another location) requires network.
+3 tier / N tier-> middle ware (EJB) / Spring (Bussiness component), Internet
+===================================================================
+Array : Array object can grow and shrink dynamically and can have any Js value.
+Js engine perform optimization so arrays are fast.
+==================================================================
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+====================================================================
+a=10;  (RTL) for type
+====================================================================
+blue print.
+=======================================================================
+class : a set of objects that share common property and common behaviour (OOAD - object oriented fundamentals :Grady Booch). father of UML.
+object : instance of class
+
+Class structure
+
+     "is a" hierarchy
+
+Object structure
+
+     "part of " hierarchy
+
+Two orthogonal hierarchies of the system
+
+The class structure and the object structure are not completely independent; rather, each object in the object structure represents a specific instance of some class.
+=========================================================================
+
+Array :
+[ , , , ] =>defn of array
+element inside the array is object.
+[{},{},{}]= Arrays of objects
+==============================
+
+https://regex101.com/
+==========================
+
+const arr = [{
+   name: 'A',
+   idNo: 1,
+   marks: {
+      math: 98,
+      sci: 97,
+      eng: 89
+   }
+},
+{
+   name: 'B',
+   idNo: 2,
+   marks: {
+      math: 88,
+      sci: 87,
+      eng: 79
+   }
+},
+{
+   name: 'C',
+   idNo: 3,
+   marks: {
+      math: 87,
+      sci: 98,
+      eng: 91
+   }
+}];
+const combineMarks = (arr = []) => {
+   let res = [];
+   res = arr.reduce((acc, val) => {
+      Object.keys(val).forEach(el => {
+         if (!acc[el]) {
+            acc[el] = [];
+         };
+         acc[el].push(val[el])
+      });
+      return acc;
+   }, {});
+   return res;
+};
+console.log(combineMarks(arr));
+====================================================================================
+
+
+let orders=[
+    {
+        orderId: 4343,
+        orderDate: '5/20/2020',
+        customerId: 340009,
+        product: 'dining chair',
+        price: 1500,
+        quantity:3
+        
+    },
+      {
+        orderId: 4,
+        orderDate: '5/20/2020',
+        customerId: 340008,
+        product: 'chair',
+        price: 500,
+        quantity:1
+        
+    }
+    ];
+    let customers=[
+        {
+            customerId: 340009,
+            name:'Jim Smith',
+            email:'Jim@gmail.com',
+            contactno: '123456'
+        },
+        {
+            customerId: 340008,
+            name:'Raj Smith',
+            email:'Raj@gmail.com',
+            contactno: '123456'
+        }
+        
+        ];
+        
+        function combine(o,c)
+        {
+        let result=[];
+        
+            for(let j=0;j<o.length;j++)
+            {
+            for(let i=0;i<c.length;i++)
+            {
+            if(o[j].customerId==c[i].customerId){
+                
+              result.push(Object.assign(o[j],c[i]))
+           //  user={...o[j],...c[i]} 
+              
+               
+            
+          //      result.push(user);
+            }
+            
+            }
+            
+            }
+        console.log(result);
+               
+            }
+         
+        
+        combine(orders,customers);
+=================================================================================================
+
+
+let orders=[
+    {
+        orderId: 4343,
+        orderDate: '5/20/2020',
+        customerId: 340009,
+        product: 'dining chair',
+        price: 1500,
+        quantity:3
+        
+    },
+      {
+        orderId: 4,
+        orderDate: '5/20/2020',
+        customerId: 340008,
+        product: 'chair',
+        price: 500,
+        quantity:1
+        
+    }
+    ];
+    let customers=[
+        {
+            customerId: 340009,
+            name:'Jim Smith',
+            email:'Jim@gmail.com',
+            contactno: '123456'
+        },
+        {
+            customerId: 340008,
+            name:'Raj Smith',
+            email:'Raj@gmail.com',
+            contactno: '123456'
+        }
+        
+        ];
+        
+        function combine(o,c)
+        {
+        let result=[];
+        
+            for(let j=0;j<o.length;j++)
+            {
+            for(let i=0;i<c.length;i++)
+            {
+            if(o[j].customerId==c[i].customerId){
+                
+            //  result.push(Object.assign(o[j],c[i]))
+             user={...o[j],customer:{...c[i]}} 
+              
+               
+            
+               result.push(user);
+            }
+            
+            }
+            
+            }
+        console.log(result);
+               
+            }
+         
+        
+        combine(orders,customers);
+============================================================================================
+
+let orders=[
+{
+orderId: 4343,
+orderDate:'5/20/2020',
+customer:340009,
+product: 'dining chair',
+quantity: 3,
+price: 1500
+},
+{
+orderId: 14343,
+orderDate:'12/2/2020',
+customer:348749,
+product: 'dining chair',
+quantity: 6,
+price: 1500
+},
+{
+orderId: 14343,
+orderDate:'12/2/2020',
+customer:348749,
+product: 'chair',
+quantity: 6,
+price: 1500
+},
+];
+
+totalOrders=[
+{
+product: 'dining chair',
+quantity: 9,
+totalAmount: 13500,
+orders:2
+}
+]
+=========================================================================
+
+JavaScript Prototype
+
+In JavaScript, every function and object has a property named prototype by default.
+
+Since the prototype property has no value at the moment, it shows an empty object
+
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+const person = new Person();
+
+// checking the prototype value
+console.log(Person.prototype); // {  }
+
+===================================================================================
+Prototype Inheritance
+
+In JavaScript, a prototype can be used to add properties and methods to a constructor function. And objects inherit properties and methods from a prototype.
+
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+const person1 = new Person();
+const person2 = new Person();
+
+// adding property to constructor function
+Person.prototype.gender = 'male';
+
+// prototype value of Person
+console.log(Person.prototype);
+
+// inheriting the property from prototype
+console.log(person1.gender);
+console.log(person2.gender);
+
+=================================================================================
+
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+const person1 = new Person();
+const person2 = new Person();
+
+// adding a method to the constructor function
+Person.prototype.greet = function() {
+    console.log('hello' + ' ' +  this.name);
+}
+
+person1.greet(); // hello John
+person2.greet(); // hello John
+================================================================================
+
+// constructor function
+function Person() {
+    this.name = 'John'
+}
+
+// add a property
+Person.prototype.age = 20;
+
+// creating an object
+const person1 = new Person();
+
+console.log(person1.age); // 20
+
+// changing the property value of prototype
+Person.prototype = { age: 50 }
+
+// creating new object
+const person3 = new Person();
+
+console.log(person3.age); // 50
+console.log(person1.age); // 20
+=====================================================================
+
+function Person() {
+    this.name = 'John'
+}
+
+// adding property 
+Person.prototype.name = 'Peter';
+Person.prototype.age = 23
+
+const person1 = new Person();
+
+console.log(person1.name); // John
+console.log(person1.age); // 23
+=====================================================================
+
+function Person () {
+    this.name = 'John'
+}
+
+// adding a prototype
+Person.prototype.age = 24;
+
+// creating object
+const person = new Person();
+
+// accessing prototype property
+console.log(person.__proto__);   // { age: 24 }
+======================================================================
+creating nodes.
+
+<p> the
+<img src="" alt="cat>
+in  the <img src=""
+alt="Hat">
+</p>
+<p><button onclick="replace()"
+>replace</button</p>
+<script>
+function replace(){
+let images=document.body.getElementsByTagName("img");
+for(let i=images.length-1;i>=0;i--)
+{
+let image=images[i];
+if(image.alt){
+let text=document.createTextNode(image.alt);
+image.parentNode.replaceChild(text,image);
+}
+}
+}
+</script>
+
+======================================================
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM replaceChild() Method</title>
+</head>
+ 
+<body>
+    <h1 style="color: green;">
+        welcome to india
+    </h1>
+    <h2>
+        DOM replaceChild() Method
+    </h2>
+     
+<p>Sorting Algorithm</p>
+ 
+    <ul id="listitem">
+        <li>Insertion sort</li>
+        <li>Merge sort</li>
+        <li>Bubble sort</li>
+    </ul>
+ 
+    <button onclick="greet()">
+        Click Here!
+    </button>
+    <script>
+        function greet() {
+            var doc = document.createTextNode("Quick sort");
+            var list = document.getElementsByTagName("li")[0];
+              list.replaceChild(doc, list.childNodes[0]);
+
+        }
+    </script>
+</body>
+</html>
+============================================================
+In HTML, sometimes the user needs to access the HTML elements to display the user different changes. We can support this by using modern-day JavaScript. To facilitate this, we can move ahead and change the HTML element by using the following techniques −
+
+Get HTML element by Id
+
+Get HTML element by className
+
+Get HTML element by Name
+
+Get HTML element by tagName
+
+Get HTML element by CSS Selector
+
+Below we have added the demonstration for the above methods.
+
+Get HTML element by Id
+This method gets the element from a unique ID and lets the user access that element. Users can use the getElementById() method to access and update the HTML content. If any element does not exist with the given Id, the method returns null.
+
+Syntax
+document.getElementById(element_ID);
+Parameter − It takes the element id for the element to be accessed.
+
+Return value − It returns the object with the particular id. If the element with the particular id doesn’t exist, null is returned.
+
+Example 1
+#Filename: index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>DOM getElementById() Method</title>
+</head>
+<body>
+   <h1 id="elementId" style="color: green;">
+      Welcome To india 
+   </h1>
+   <p>DOM getElementById() Method</p>
+   <script>
+      var temp = document.getElementById("elementId");
+      console.log(temp);
+      console.log(temp.innerHTML);
+   </script>
+<body>
+</html>
+Output
+
+
+Get HTML element by className
+This selects the element from the class name. We can provide a class name to each element in HTML and then access the same using that class name. In this we are going to use the method getElementsByClassName() to get and update the element.
+
+Syntax
+document.getElementsByClassName(classnames);
+Parameter − It takes input for class names of the element that needs to be accessed.
+
+Return value − It returns the collection of objects that have a particular class name. Users can access this collection using the indexes.
+
+Example 2
+#Filename: index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>DOM getElementsByClassName() Method</title>
+</head>
+<body>
+   <h1 style="color: green;">Welcome To India</h1>
+   <p class="className">Point #1</p>
+   <p class="className">Point #2</p>
+   <p class="className">Point #3</p>
+   <b>DOM getElementsByclassName() Method</b>
+<script>
+   // Accessing the element by getElementsByclassName method
+   var temp = document.getElementsByClassName("className");
+   console.log(temp[0]);
+   console.log(temp[1]);
+   console.log(temp[2]);
+</script>
+</body>
+</html>
+Output
+
+
+Get HTML element by Name
+In JavaScript, we can access elements by using the getElementsByName() method. It helps the user to get an element with the help of a name. The name here is the attribute name of the HTML element.
+
+Syntax
+document.getElementsByName(element_name);
+Parameter − It takes input for the name of the element that the user wants to access.
+
+Return value − It returns the collection of elements that have a particular name.
+
+Example 3
+#Filename: index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>DOM getElementByName() Method</title>
+</head>
+<body>
+   <h1 style="color: green;">Welcome To India</h1>
+   <p name="attrName">Point #1</p>
+   <p name="attrName">Point #2</p>
+   <p name="attrName">Point #3</p>
+   <p>DOM getElementsByName() Method</p>
+<script>
+   // Accessing the element by getElementsByName method
+   var temp = document.getElementsByName("attrName");
+   console.log(temp[0]);
+   console.log(temp[1]);
+   console.log(temp[2]);
+</script>
+</body>
+</html>
+Output
+
+
+Get HTML elements by TagName
+In JavaScript, we can use the getElementsByTagName() method to access all the elements with the given tag name. This method is the same as the getElementsByName() method. Here, we are accessing the elements using the tag name instead of using the name of the element.
+
+Syntax
+document.getElementsByTagName(Tag_name);
+Parameter − It takes input for the tag name
+
+Return value − It returns the collection of elements that includes the tag name passed as a parameter.
+
+Example 4
+#Filename: index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>DOM getElementByTagName() Method</title>
+</head>
+<body>
+   <h1 style="color: green;">Welcome To India</h1>
+   <!-- Multiple html element with h1 tag -->
+   <p>Point #1</p>
+   <p>Point #2</p>
+   <p>Point #3</p>
+   <p>DOM getElementsByTagName() Method</p>
+<script>
+   // Accessing the element by
+   // getElementsByTagName method
+   var temp = document.getElementsByTagName("p");
+   console.log(temp[0]);
+   console.log(temp[1]);
+   console.log(temp[2]);
+</script>
+</body>
+</html>
+Output
+
+
+Get HTML elements by CSS Selector
+We can select the HTML elements by using the CSS selectors such as class Id, and tagName. HTML elements can be retrieved using CSS selectors in two ways. The querySelector() method returns the first element that matches the particular CSS selector. The querySelectorAll() method returns all element that matches the particular CSS selector.
+
+Syntax
+document.querySelector(selectors);
+document.querySelectorAll(selectors);
+Parameter − As a parameter, it accepts different CSS selectors such as class, tag name, and id.
+
+Return value − The querySelector() method returns the first object that matches thecCSS selectors, while the querySelectorAll() method returns a collection of all objectscthat match the CSS selectors.
+
+Example 5
+#Filename: index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>DOM querySelector() Method</title>
+</head>
+<body>
+   <h1 style="color: green;">Welcome To India</h1>
+   <!-- html element with classnames and id -->
+   <h1 class="tPoint" id="id1">Point #1</h1>
+   <h1 class="tPoint" id="id2">Point #2</h1>
+   <p class="tPoint">Point #3</p>
+<script>
+   // Accessing the element by class name
+   // using querySelector
+   var temp = document.querySelector(".tPoint");
+   console.log(temp);
+   // Accessing the element by id using querySelector
+   temp = document.querySelector("#id2");
+   console.log(temp);
+   // Accessing the element by class name and
+   // id using querySelector
+   temp = document.querySelector(".tPoint#id2");
+   console.log(temp);
+   // Accessing the element by tag name that
+   // includes the particular class
+   temp = document.querySelector("p.tPoint");
+   console.log(temp);
+</script>
+</body>
+</html>
+Output
+=================================================================
+====================================================================================
+let orders=[
+    {
+        orderId: 4343,
+        orderDate: '5/20/2020',
+        customerId: 340009,
+        product: 'dining chair',
+        price: 1500,
+        quantity:3
+        
+    },
+      {
+        orderId: 4,
+        orderDate: '5/20/2020',
+        customerId: 340008,
+        product: 'chair',
+        price: 500,
+        quantity:1
+        
+    }
+    ];
+    let customers=[
+        {
+            customerId: 340009,
+            name:'Jim Smith',
+            email:'Jim@gmail.com',
+            contactno: '123456'
+        },
+        {
+            customerId: 340008,
+            name:'Raj Smith',
+            email:'Raj@gmail.com',
+            contactno: '123456'
+        }
+        
+        ];
+        
+        function combine(o,c)
+        {
+        let result=[];
+        
+            for(let j=0;j<o.length;j++)
+            {
+            for(let i=0;i<c.length;i++)
+            {
+            if(o[j].customerId==c[i].customerId){
+                
+              result.push(Object.assign(o[j],c[i]))
+           //  user={...o[j],...c[i]} 
+              
+               
+            
+          //      result.push(user);
+            }
+            
+            }
+            
+            }
+        console.log(result);
+               
+            }
+         
+        
+        combine(orders,customers);
+=================================================================================================
+
+
+let orders=[
+    {
+        orderId: 4343,
+        orderDate: '5/20/2020',
+        customerId: 340009,
+        product: 'dining chair',
+        price: 1500,
+        quantity:3
+        
+    },
+      {
+        orderId: 4,
+        orderDate: '5/20/2020',
+        customerId: 340008,
+        product: 'chair',
+        price: 500,
+        quantity:1
+        
+    }
+    ];
+    let customers=[
+        {
+            customerId: 340009,
+            name:'Jim Smith',
+            email:'Jim@gmail.com',
+            contactno: '123456'
+        },
+        {
+            customerId: 340008,
+            name:'Raj Smith',
+            email:'Raj@gmail.com',
+            contactno: '123456'
+        }
+        
+        ];
+        
+        function combine(o,c)
+        {
+        let result=[];
+        
+            for(let j=0;j<o.length;j++)
+            {
+            for(let i=0;i<c.length;i++)
+            {
+            if(o[j].customerId==c[i].customerId){
+                
+            //  result.push(Object.assign(o[j],c[i]))
+             user={...o[j],customer:{...c[i]}} 
+              
+               
+            
+               result.push(user);
+            }
+            
+            }
+            
+            }
+        console.log(result);
+               
+            }
+         
+        
+        combine(orders,customers);
+============================================================================================
+
+
+const arr = [{
+   name: 'A',
+   idNo: 1,
+   marks: {
+      math: 98,
+      sci: 97,
+      eng: 89
+   }
+},
+{
+   name: 'B',
+   idNo: 2,
+   marks: {
+      math: 88,
+      sci: 87,
+      eng: 79
+   }
+},
+{
+   name: 'C',
+   idNo: 3,
+   marks: {
+      math: 87,
+      sci: 98,
+      eng: 91
+   }
+}];
+const combineMarks = (arr = []) => {
+   let res = [];
+   res = arr.reduce((acc, val) => {
+      Object.keys(val).forEach(el => {
+         if (!acc[el]) {
+            acc[el] = [];
+         };
+         acc[el].push(val[el])
+      });
+      return acc;
+   }, {});
+   return res;
+};
+console.log(combineMarks(arr));
+
+=================================================================
+
+let orders=[
+{
+orderId: 4343,
+orderDate:'5/20/2020',
+customer:340009,
+product: 'dining chair',
+quantity: 3,
+price: 1500
+},
+{
+orderId: 14343,
+orderDate:'12/2/2020',
+customer:348749,
+product: 'dining chair',
+quantity: 6,
+price: 1500
+},
+{
+orderId: 14343,
+orderDate:'12/2/2020',
+customer:348749,
+product: 'chair',
+quantity: 6,
+price: 1500
+},
+{
+orderId: 4343,
+orderDate:'5/20/2020',
+customer:340009,
+product: 'dining chair',
+quantity: 3,
+price: 1500
+}
+];
+
+===========================================================================
+
+totalOrders=[
+{
+product: 'dining chair',
+quantity: 9,
+totalAmount: 13500,
+orders:2
+}
+]
+==========================================================================
+
+// console.log(orders);
+const aggregateArray=arr=>
+{
+  return arr.reduce((acc,val)=>{
+const index=acc.findIndex(obj=>obj.product===val.product);
+if(index!=-1)
+{
+  acc[index].price+=val.price*val.quantity;
+  acc[index].quantity+=val.quantity;
+  acc[index].orders+=1;
+ }
+  else
+  {
+    acc.push({
+      product: val.product,
+      price:val.price*val.quantity,
+      quantity:val.quantity,
+      orders:1
+    });
+  };
+  return acc;
+},[]);
+
+};
+totalOrders=aggregateArray(orders);
+console.log(totalOrders);
+======================================================================================================
+
+let orders = [
+    {
+        orderId: 4343,
+        orderDate: '5/20/2020',
+        customerId: 340009,
+        product: 'dining chair',
+        price: 1500,
+        quantity: 3
+
+    },
+    {
+        orderId: 4,
+        orderDate: '5/20/2020',
+        customerId: 340008,
+        product: 'chair',
+        price: 500,
+        quantity: 1
+
+    }
+];
+let customers = [
+    {
+        customerId: 340009,
+        name: 'Jim Smith',
+        email: 'Jim@gmail.com',
+        contactno: '123456'
+    },
+    {
+        customerId: 340008,
+        name: 'Raj Smith',
+        email: 'Raj@gmail.com',
+        contactno: '123456'
+    }
+
+];
+
+function combine(o, c) {
+    let result = [];
+
+    for (let j = 0; j < o.length; j++) {
+        for (let i = 0; i < c.length; i++) {
+            if (o[j].customerId == c[i].customerId) {
+                result.push(Object.assign(o[j],c[i]))
+      
+                //  const user = { ...o[j], customer: { ...c[i] } }
+                // // const user = { ...o[j],  ...c[i]  }
+
+
+                //result.push(user);
+            }
+
+        }
+
+    }
+    console.log(result);
+
+}
+
+
+combine(orders, customers);
+
+=====================================================================
+
+<!DOCTYPE html>
+<html>
+<body
+  onmousedown="myFunction(event)"
+  onmouseup="myFunction(event)"
+  onkeydown="myFunction(event)"
+  onkeyup="myFunction(event)">
+
+<p>Press any key or click the mouse in this document to get what type of event that was triggered.</p>
+
+<p>Event: <span id="demo"></span></p>
+
+<script>
+function myFunction(event) {
+  var x = event.type;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>
+=================================================================================================
+<!DOCTYPE html>
+<html>
+   <body onclick="myFunction(event)">
+      <h1 style="color:blueviolet">DelftStack Learning</h1>
+      <h3>JavaScript Target event property</h3>
+      <p>Click on button on this web page in this document to find out the element name which is used to triggered the event.</p>
+      <button>Click here</button>
+      <p id="myPara"></p>
+      <script>
+         function myFunction(event) {
+             var myVariable = event.target; // get tagert event property
+             document.getElementById("myPara").innerHTML = "Event triggered by a " + myVariable.tagName + " element";
+         }
+      </script>
+   </body>
+</html>
+========================================================================================
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Keyboard Event</h1>
+<h2>The keyCode Property</h2>
+
+<p>The keyCode property is deprecated, use the which property instead.</p>
+
+<input type="text" size="40" onkeypress="myFunction(event)">
+
+<p>"The Unicode value is:"</p>
+<p id="demo"></p>
+
+<script>
+function myFunction(event) {
+  let unicode= event.which;
+  document.getElementById("demo").innerHTML = unicode;
+}
+</script>
+
+</body>
+</html>
+
+=======================================================================
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Press a key on the keyboard in the input field.</p>
+
+<input type="text" size="40" onkeydown="myFunction(event)">
+
+<p id="demo"></p>
+
+<script>
+function myFunction(event) {
+  var x = event.key;
+  document.getElementById("demo").innerHTML = "The pressed key was: " + x;
+}
+</script>
+
+</body>
+</html>
+=========================================================================
+<div id="target">
+    <span>click me</span>
+</div>
+
+const elem = document.getElementById('target'); // div
+
+elem.addEventListener('click', function (event) {
+    console.log(event.target); // span
+    console.log(event.currentTarget); // div
+});
+=========================================================================
+<!DOCTYPE html>
+<html>
+<body>
+
+<p onmouseover="getRelatedElement(event)">Mouse over this paragraph.</p>
+
+<script>
+function getRelatedElement(event) { 
+  alert("The cursor just exited the " + event.relatedTarget.tagName + " element.");
+}
+</script>
+
+</body>
+</html>
+=====================================================================
+
+<!DOCTYPE html>
+<html>
+<body onmousedown="isKeyPressed(event)">
+
+<p>Click somewhere in the document. An alert box will tell you if the SHIFT key was pressed when the onmousedown event occured.</p>
+
+<p><strong>Tip:</strong> Try to press and hold down the SHIFT key (on your keyboard) before you click in the document.</p>
+
+<script>
+function isKeyPressed(event) {
+  if (event.shiftKey) {                             //  if (event.altKey) {   //  if (event.ctrlKey) { 
+    alert("The SHIFT key was pressed!");
+  } else {
+    alert("The SHIFT key was NOT pressed!");
+  }
+}
+</script>
+
+</body>
+</html>
+==================================================================
+
+JavaScript » Objects » Event
+===============================
+An Event object is created automatically by JavaScript on the occurance of an event. It has various properties that provide information about the event such as event type, the position of the cursor at the time the event occured, etc. Not all of the properties relate to every type of event; the one's that do are documented in the individual event handler pages.
+
+Examples
+
+Code:
+<input type="button" value="Event type" onClick='alert("The event type is " + event.type)'>
+
+Explanation:
+
+This example creates a button that, when clicked, displays an alert box showing the event type (in this case a 'click' event).
+
+Properties
+
+constructor
+Syntax: Object.constructor
+
+This specifies a function to create an object's property and is inherited by all objects from their prototype.
+
+data
+Syntax: event.data
+
+This property relates to the DragDrop event and its use returns an array that contains the URLs of any dropped objects, as strings.
+
+height
+Syntax: event.height
+
+This property relates to the height of the window or frame that contains the object that initiated the event.
+
+keyCode
+Syntax: event.keyCode
+
+Contains the last key that was pressed.
+
+layerX
+Syntax: event.layerX
+
+These properties returns a number that represents the horizontal/vertical position, in pixels, of the cursor relative to the layer that initiated the event, or, when passed with a resize event, it represents the object width/height. These properties are synonyms for, and interchangable with, the x and y event object properties.
+
+layerY
+Syntax: event.layerY
+
+These properties returns a number that represents the horizontal/vertical position, in pixels, of the cursor relative to the layer that initiated the event, or, when passed with a resize event, it represents the object width/height. These properties are synonyms for, and interchangable with, the x and y event object properties.
+
+modifiers
+Syntax: event.modifiers
+
+This property returns a string containing details of any modifier keys that were held down during a key or mouse event. The values of the modifier keys are as follows: ALT_MASK, CONTROL_MASK, SHIFT_MASK and META_MASK.
+
+pageX
+Syntax: event.pageX
+
+These properties return the horizontal/vertical position of the cursor relative to the page, in pixels, at the time the event occured.
+
+pageY
+Syntax: event.pageY
+
+These properties return the horizontal/vertical position of the cursor relative to the page, in pixels, at the time the event occured.
+
+prototype
+Syntax: Object.prototype.name = value
+
+This allows the addition of properties and methods to any object.
+
+screenX
+Syntax: event.screenX
+
+These properties return the horizontal/vertical position of the cursor relative to the screen, in pixels, at the time the event occured.
+
+srcElement
+Syntax: event.srcElement[ = oObject ]
+
+Sets of retrieves te object that fired the event.
+
+target
+Syntax: event.target
+
+This property returns a reference to the object that the event was originally sent to.
+
+type
+Syntax: event.type
+
+This property returns a string that represents the type of the event (click, key down, etc.).
+
+which
+Syntax: event.which
+
+This property returns a number that represents either which mouse button (1 being the left button, 2 the middle and 3 the right) was pressed or which key was pressed (its ASCII value) at the time the event occuered.
+
+width
+Syntax: event.width
+
+This property relates to the height of the window or frame that contains the object that initiated the event.
+
+x
+Syntax: event.x
+
+These properties returns a number that represents the horizontal/vertical position, in pixels, of the cursor relative to the layer that initiated the event, or, when passed with a resize event, it represents the object width/height. These properties are synonyms for, and interchangable with, the layerX and layerY event object properties.
+
+y
+Syntax: event.y
+
+These properties returns a number that represents the horizontal/vertical position, in pixels, of the cursor relative to the layer that initiated the event, or, when passed with a resize event, it represents the object width/height. These properties are synonyms for, and interchangable with, the layerX and layerY event object properties.
+
+Methods
+eval
+Syntax: Object.eval(string)
+
+The eval method is deprecated as a method of Object, but is still used as a high level function. It evaluates a string of JavaScript in the context of an object.
+
+toSource
+Syntax: Object.toSource()
+
+The toSource method returns a literal representing the source code of an object. This can then be used to create a new object.
+
+toString
+Syntax: Object.toString()
+
+The toString method returns a string representing a specified object.
+
+unwatch
+Syntax: Object.unwatch(property)
+
+This method removes a watchpoint set for an object and property name with the watch method.
+
+valueOf
+Syntax: Object.valueOf()
+
+This method returns a primitive value for a specified object.
+
+watch
+Syntax: Object.watch(property, handlerfunction)
+
+This method adds a watchpoint to a property of the object.
+=====================================================================
+https://www.peachpit.com/articles/article.aspx?p=1394321&seqNum=3
+=====================================================================
+An HTML web page has finished loading
+An HTML input field was changed
+An HTML button was clicked
+
+<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+
+
+<button onclick="this.innerHTML = Date()">The time is?</button>
+
+
+<button onclick="displayDate()">The time is?</button>
+
+Event		Description
+onchange	An HTML element has been changed
+onclick		The user clicks an HTML element
+onmouseover	The user moves the mouse over an HTML element
+onmouseout	The user moves the mouse away from an HTML element
+onkeydown	The user pushes a keyboard key
+onload		The browser has finished loading the page
+
+
+JavaScript Event Handlers
+Event handlers can be used to handle and verify user input, user actions, and browser actions:
+
+Things that should be done every time a page loads
+Things that should be done when the page is closed
+Action that should be performed when a user clicks a button
+Content that should be verified when a user inputs data
+etc...
+===================================================================================
+EX1:
+====
+<!DOCTYPE html>
+<html>
+<body
+  onmousedown="myFunction(event)"
+  onmouseup="myFunction(event)"
+  onkeydown="myFunction(event)"
+  onkeyup="myFunction(event)">
+
+<p>Press any key or click the mouse in this document to get what type of event that was triggered.</p>
+
+<p>Event: <span id="demo"></span></p>
+
+<script>
+function myFunction(event) {
+  var x = event.type;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>
+=================================================================================================
+EX2:
+====
+<!DOCTYPE html>
+<html>
+   <body onclick="myFunction(event)">
+      <h1 style="color:blueviolet">DelftStack Learning</h1>
+      <h3>JavaScript Target event property</h3>
+      <p>Click on button on this web page in this document to find out the element name which is used to triggered the event.</p>
+      <button>Click here</button>
+      <p id="myPara"></p>
+      <script>
+         function myFunction(event) {
+             var myVariable = event.target; // get tagert event property
+             document.getElementById("myPara").innerHTML = "Event triggered by a " + myVariable.tagName + " element";
+         }
+      </script>
+   </body>
+</html>
+========================================================================================
+EX3:
+====
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Keyboard Event</h1>
+<h2>The keyCode Property</h2>
+
+<p>The keyCode property is deprecated, use the which property instead.</p>
+
+<input type="text" size="40" onkeypress="myFunction(event)">
+
+<p>"The Unicode value is:"</p>
+<p id="demo"></p>
+
+<script>
+function myFunction(event) {
+  let unicode= event.which;
+  document.getElementById("demo").innerHTML = unicode;
+}
+</script>
+
+</body>
+</html>
+
+=======================================================================
+EX4:
+====
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Press a key on the keyboard in the input field.</p>
+
+<input type="text" size="40" onkeydown="myFunction(event)">
+
+<p id="demo"></p>
+
+<script>
+function myFunction(event) {
+  var x = event.key;
+  document.getElementById("demo").innerHTML = "The pressed key was: " + x;
+}
+</script>
+
+</body>
+</html>
+=========================================================================
+EX5:
+====
+<div id="target">
+    <span>click me</span>
+</div>
+
+const elem = document.getElementById('target'); // div
+
+elem.addEventListener('click', function (event) {
+    console.log(event.target); // span
+    console.log(event.currentTarget); // div
+});
+=========================================================================
+EX6:
+====
+<!DOCTYPE html>
+<html>
+<body>
+
+<p onmouseover="getRelatedElement(event)">Mouse over this paragraph.</p>
+
+<script>
+function getRelatedElement(event) { 
+  alert("The cursor just exited the " + event.relatedTarget.tagName + " element.");
+}
+</script>
+
+</body>
+</html>
+=====================================================================
+EX7:
+====
+<!DOCTYPE html>
+<html>
+<body onmousedown="isKeyPressed(event)">
+
+<p>Click somewhere in the document. An alert box will tell you if the SHIFT key was pressed when the onmousedown event occured.</p>
+
+<p><strong>Tip:</strong> Try to press and hold down the SHIFT key (on your keyboard) before you click in the document.</p>
+
+<script>
+function isKeyPressed(event) {
+  if (event.shiftKey) {                             //  if (event.altKey) {   //  if (event.ctrlKey) { 
+    alert("The SHIFT key was pressed!");
+  } else {
+    alert("The SHIFT key was NOT pressed!");
+  }
+}
+</script>
+
+</body>
+</html>
+==================================================================
+dynamic text box
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <input id="btnAdd" type="button" value="add" onclick="AddTextBox()" />
+        <br />
+        <br />
+        <div id="TextBoxContainer">
+            <!--Textboxes will be added here -->
+        </div>
+        <br />
+        <asp:Button ID="btnPost" runat="server" Text="Post" OnClick="Post" />
+        </form>
+        <script>
+            function GetDynamicTextBox(value){
+                return '<input name = "DynamicTextBox" type="text" value = "' + value + '" />' +
+                        '<input type="button" value="Remove" onclick = "RemoveTextBox(this)" />'
+            }
+            function AddTextBox() {
+                var div = document.createElement('DIV');
+                div.innerHTML = GetDynamicTextBox("");
+                document.getElementById("TextBoxContainer").appendChild(div);
+            }
+             
+            function RemoveTextBox(div) {
+                document.getElementById("TextBoxContainer").removeChild(div.parentNode);
+            }
+             
+            function RecreateDynamicTextboxes() {
+                var values = eval('<%=Values%>');
+                if (values != null) {
+                    var html = "";
+                    for (var i = 0; i < values.length; i++) {
+                        html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
+                    }
+                    document.getElementById("TextBoxContainer").innerHTML = html;
+                }
+            }
+            window.onload = RecreateDynamicTextboxes;
+            </script>
+</body>
+</html>
+================================================================================
+
+Validation : Web App
+HTML Login Form
+================
+In Gmail or any user login
+
+if text box is empty, to check format of textbox(email,contact number) and by mistake clicking the login option.
+ans : do client side validation
+
+if text box is filled with credentials 
+ans : do server side validation (DB server)
+
+Whether this request will carry to Server to handle errors ?
+true or false  
+
+learning : 
+Few validation is taken care
+Client side validation (it handles in browser level)
+Few validation is taken care
+Server side validation (Servlet etc....)
+
+advantage having validation in client side :
+
+no network request is generated (response time,
+latency, bandwidth)
+no round trip
+====================================================================================
+Article : SHA(1), SHA(2) and its application, prove using online tools.
+====================================================================================
+validation : 
+
+simplest way : 
+suppose if you want text box with 8 char.
+
+will you give empty text without any format
+or
+will you restrict while define the html element ?
+
+going for list item or check box, input is restricted
+if i use text box, Js code
+calendar comp, because to avoid date error.
+
+situation : assume you give text box for the user to type date.
+problem : date validation
+soln : modify the html element 
+
+other words : allow user to select instead of type.
+
+ex: raising concern in ecommerce product.
+
+if i asked to select the purchase date.
+
+calender control : disable all the future date make live only date<= currentdate
+
+ex: booking ticket
+
+calender control : disable all the date < currentdate
+
+====================================================================================
+Security : proctecting data / validating data
+
+you can serve better in Web App.
+====================================================================================
+Validation
+common : input 
+====================================================================================
+toggle -> show and hide (reduce clutter)
+====================================================================================
+
+when input is provided validate and then save.
+=====================================================================================
+
+id attribute is unique
+=====================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2> Js demo </h2>
+<p> please wait for 2 seconds to change the display </p>
+<p id="demo"></p>
+<button onclick="stop()">stop</button>
+
+<script>
+// setTimeout(myFunctiton,2000);
+// function myFunctiton()
+// {
+// document.getElementById('demo').innerHTML="welcome to NIIT";
+// }
+
+// setTimeout(function(){
+// myFunction("india is my country")
+
+// },2000);
+
+// function myFunction(value)
+// {
+// document.getElementById('demo').innerHTML=value;
+
+// }
+
+var var1=setInterval(myFunctiton,2000);
+let count=0;
+function myFunctiton()
+ {
+ document.getElementById('demo').innerHTML=count;
+count =count+1; 
+}
+
+function stop()
+{
+clearInterval(var1);
+}
+</script>
+
+
+</body>
+</html>
+=====================================================================================
+
+Ex1:
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Function demo</h1>
+    <p id="demo">welcome</p>
+    <script>
+        function myDisplay(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+        function myFirst() {
+
+            myDisplay("hello, I am here");
+        }
+        function mySecond() {
+
+            myDisplay("this is in second")
+        }
+        mySecond();
+        myFirst();
+
+
+
+    </script>
+
+
+</body>
+=================================================================================================
+Ex2:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Function demo</h1>
+    <p id="demo">welcome</p>
+    <script>
+        function myDisplay(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+
+        function calculator(num1, num2, myCallback) {
+            let sum = num1 + num2;
+            myCallback(sum);
+        }
+        calculator(5, 5, myDisplay);
+
+    </script>
+
+
+</body>
+
+</html>
+
+====================================================================================================
+Ex3: 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2> Js demo </h2>
+<p> please wait for 2 seconds to change the display </p>
+<p id="demo"></p>
+<button onclick="stop()">stop</button>
+
+<script>
+// setTimeout(myFunctiton,2000);
+// function myFunctiton()
+// {
+// document.getElementById('demo').innerHTML="welcome to NIIT";
+// }
+
+// setTimeout(function(){
+// myFunction("india is my country")
+
+// },2000);
+
+// function myFunction(value)
+// {
+// document.getElementById('demo').innerHTML=value;
+
+// }
+
+var var1=setInterval(myFunctiton,2000);
+let count=0;
+function myFunctiton()
+ {
+ document.getElementById('demo').innerHTML=count;
+count =count+1; 
+}
+
+function stop()
+{
+clearInterval(var1);
+}
+</script>
+
+
+</body>
+</html>
+==========================================================================================
+
+Chapter 5 :
+
+install :
+
+JSON server (similar like DB), to store and retrieve and to do CRUD operations.
+
+==============================================================================
+JSON -> 
+
+JSON stands for JavaScript Object Notation
+
+JSON is a lightweight format for storing and transporting data
+
+JSON is often used when data is sent from a server to a web page
+
+JSON is "self-describing" and easy to understand
+==============================================================================
+install JSON
+============
+Note : To use npm command, you should be already installed node, npm is node package manager.
+
+npm install -g json-server
+
+to execute json file.
+
+json-server --watch db.json
+==============================================================================
+Loading db.json
+  Oops, db.json doesn't seem to exist
+  Creating db.json with some default data
+===============================================================================
+Example of JSON:
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
+====================================================================================
+
+  Resources
+  http://localhost:3000/posts
+  http://localhost:3000/comments
+  http://localhost:3000/profile
+
+  Home
+  http://localhost:3000
+===================================================================================
+Before JSON -> XML 
+===================================================================================
+case study :  API End point, resources are given (separate pipeline), JSON (data format)
+
+An API provides different points of access for different resources. These are called API endpoints, which are URLs used to send requests and receive data from the API. REST APIs have a base URL combined with a name to access the API endpoints. The base URL stays the same while the name changes for each endpoint.
+
+Travel agent (middle man): abhibus, Agent is booking for KPN, gov bus etc...
+
+assume KPN is running in microsoft server (ASP / Sql server)
+assume TN gov bus is running in Oracle server (Oracle DB)
+
+whether abhibus is holding both the server ? 
+Assume abhibus is running in adobe server, this abhibhus will take end point from KPN and TN gov bus to book the ticket. 
+
+conclusion : KPN website is also booking tickets directly and also Abhibus tickets are booked indirectly.
+
+=================================================================================
+
+rough work :
+From the given template of html and Css we need to analyse certain attribute before moving to JS:
+==================================
+what are the id used or to be applied in html page
+==================================================
+form id : myform
+form sumbit (onsubmit method): submitContact(event)
+input id for the name : name
+input id for the subject : subject
+input id for the  phone : phone
+input id for the email : email
+input id for the message : message
+input id for the birthdate : birthdate
+
+to handle errors or communicating errors 
+to display summary of errors : validationSummary, inside <ul>
+
+to display individual errors 
+id for name : NameError
+id for subject : SubjectError
+id for phoneno : phoneNoError
+id for email : EmailError
+id for message : MessageError
+
+extend html element :
+button to add addContactno the given id : addContactNo
+=====================================================
+client server technology :
+example : PHP, Servlet, JSP, ASP (server side programming) and EJB (Middle ware)
+client side programing : HTML, CSS, JS for all 
+Java Framework : JSF / Spring / HB
+======================================================
+Example :  Form is the input, report is the output
+=====================================================
+normal : HTML form to collect user details :
+
+toggle/ hide :  When additional or optional info is required from user.
+create dynamic html elements
+good UI/UX
+===========================================================
+Example 1 : Purchase date validation, can't be future date :
+============================================================
+<div>
+            <label>Enter Purchase Date</label>
+            <input type="date" name="purchaseDate" id="purchaseDate" placeholder="Enter Product Purchase Date">
+            <small id="purchaseDateError"></small>
+
+</div>
+        
+
+let purchaseDate = document.getElementById('purchaseDate');
+
+purchaseDate!==null ? purchaseDate.setAttribute('max', new Date().toISOString().split('T')[0]):purchaseDate;
+
+====================================================================================
+Example 2 : Disable birthdate field for whom age is less than 18
+================================================================
+console.log(new Date())
+let currentyear = parseInt(new Date().getFullYear());
+let currentmonth = parseInt(new Date().getMonth());
+currentmonth++;
+let currentdate = parseInt(new Date().getDate());
+
+let year = currentyear-18;
+let month = (currentmonth<10)?'0'+currentmonth : currentmonth;
+let date = (currentdate<10)?'0'+currentdate : currentdate;
+let maxdate = year + "-" + month + "-" + date;
+
+let calender = document.getElementById('birthdate');
+calender.setAttribute("max",maxdate);
+
+==========================================================================
+Example 3: to add additional contact number in HTML Contact form 
+===========================================================
+let count=1;
+const addAdditionalNo=()=>
+{
+    if(count<3)
+    {
+        div = document.createElement("div");
+        input = document.createElement("input");
+        input.setAttribute("placeholder", "Additional Number"+count);
+        input.setAttribute("name","AdditionalNo"+count);
+        input.setAttribute('id',"AdditionalNo"+count);
+        div.appendChild(input);
+    
+        document.getElementById("contactNos").appendChild(div);
+        count= count+1;
+        }
+        else {
+            document.getElementById("addContactNo").setAttribute("type","disabled");
+        }
+    }
+
+        document.getElementById("addContactNo").addEventListener("click", function() {
+            addAdditionalNo();
+        })
+        
+=====================================================================================
+
+class Contact
+{
+    private _name:string;
+    private _password:string;
+    private _emailid:string;
+    constructor(_name:string,_password:string,_emailid:string)
+    {
+        this._emailid=_emailid;
+        this._name=_name;
+        this._password=_password;
+    }
+    getName():string{ return this._name}
+    getPassword():string{ return this._password}
+    getEmailid():string{ return this._emailid}
+}
+let saveData=(contactformdata:any)=>
+{
+    event?.preventDefault()
+let contactformObject=Object.fromEntries(new FormData(contactformdata));
+let contactobj1=new Contact(<string>contactformObject.uname,<string>contactformObject.password,<string>contactformObject.emailid)
+
+let requestOptions={
+    method: 'POST',
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(contactobj1)
+}
+
+fetch('http://localhost:3000/contactdetails',requestOptions)
+
+}
+========================================================================
+
+npx tsc -t es2019 Contactscript.ts
+
+pls use above command if u get version issue of ES
+
+=======================================================================
+
+idempotent ->element of a set 
+             which is unchanged in value (every request)
+=============================
+Protocol -> HTTP, HTTPS
+Prototype -> when we want to extend function 
+=============================
+HTTP: 
+client-server protocol and any data exchange on the web.
+=============================
+Browser -> client
+
+URL : https://www.niit.com/india/
+URL : http://jkpsc.nic.in/
+
+http vs https (security, Secured Socket Layer) digital signature (3rd party)  trusted site 
+
+client -> request   
+Server -> response 
+============================
+HTTP methods are case sensitive
+============================
+HTTP methods on CRUD (Create, Read, Update and Delete).
+C -> POST
+R -> GET
+U -> PUT
+D -> DELETE
+===========================
+Sample URL : please refer any one as per instruction
+
+https://jsonplaceholder.typicode.com/
+
+https://petstore.swagger.io/
+
+===========================
+Two way to test the resource
+
+1. run in the browser directly
+2. write Js API to fetch the data
+
+run this once in browser url : https://jsonplaceholder.typicode.com/todos/1
+
+Example 1 : fetch API
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+
+==============================================================================
+
+XMLHttpRequest vs fetch
+
+xhr -> object to interact with servers
+
+Async prog => UI/UX better 
+
+difference between Sync vs Async
+
+==============================================================================
+Example 2 : Sync demo using xhr
+
+create hello.json in your directory
+
+[
+{
+"display": "JavaScript Tutorial",
+"url": "https://developer.mozilla.org/en-US/docs/Web/javascript"
+},
+{
+"display": "HTML Tutorial",
+"url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"
+},
+{
+"display": "CSS Tutorial",
+"url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Tutorials"
+}
+]
+==============================================================
+
+    <script>
+   var xhr=new XMLHttpRequest();
+   xhr.open("GET",'/demo-2-making-http-calls-with-xhr/hello.json',false); // true is default for async 
+   xhr.send();
+   console.log(xhr.response);
+   console.log("i am here");
+    </script>
+
+order of execution
+sequence is maintained in sync programming
+
+Async -> it will not wait for the result and jump to the next instruction, in order to notify
+the response, we need event to handle.
+
+==================================================================
+
+Async operation :
+
+I/O bound operation
+Downloading data from file
+CPU bound operation
+Perform task in background
+Extracting data from network
+REST API calls to external server
+
+====================================================================
+
+Example 3 :
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>xhr - Sync and Async demo </h1>
+
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", '/demo-2-making-http-calls-with-xhr/hello.json');
+        xhr.send();
+        console.log(xhr.response);
+        console.log("i am here");
+        // add an event to track the response
+        // xhr.onload = function (e) {
+        //     if (xhr.readyState === 4) {
+        //         if (xhr.status === 200) {
+        //             console.log(xhr.responseText);
+
+        //         }
+        //         else {
+        //             console.error(xhr.statusText);
+
+        //         }
+        //     }
+
+        // }
+        //  This will be called after the response is received
+        xhr.onload = function () {
+            if (xhr.status != 200) { // analyze HTTP status of the response
+                alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+            } else { // show the result
+                alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
+            }
+        };
+
+        xhr.onprogress = function (event) {
+            if (event.lengthComputable) {
+                alert(`Received ${event.loaded} of ${event.total} bytes`);
+            } else {
+                alert(`Received ${event.loaded} bytes`); // no Content-Length
+            }
+
+        };
+
+        xhr.onerror = function () {
+            alert("Request failed");
+        };
+
+    </script>
+
+
+</body>
+
+</html>
+
+
+=====================================================================
+
+Example 4 :
+
+<!DOCTYPE html>
+<script>
+"use strict";
+
+// 1. Create a new XMLHttpRequest object
+let xhr = new XMLHttpRequest();
+
+// 2. Configure it: GET-request for the URL /article/.../load
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+
+// 3. Send the request over the network
+xhr.send();
+
+// 4. This will be called after the response is received
+xhr.onload = function() {
+  if (xhr.status != 200) { // analyze HTTP status of the response
+    alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+  } else { // show the result
+    alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
+  }
+};
+
+xhr.onprogress = function(event) {
+  if (event.lengthComputable) {
+    alert(`Received ${event.loaded} of ${event.total} bytes`);
+  } else {
+    alert(`Received ${event.loaded} bytes`); // no Content-Length
+  }
+
+};
+
+xhr.onerror = function() {
+  alert("Request failed");
+};
+</script>
+==========================================================================
+reference URL : https://javascript.info/xmlhttprequest
+==========================================================================
+
+
+"I Promise a Result!"
+
+"Producing code" is code that can take some time
+
+"Consuming code" is code that must wait for the result
+
+A Promise is a JavaScript object that links producing code and consuming code
+
+Promise Object Properties
+
+A JavaScript Promise object can be:
+
+Pending
+Fulfilled
+Rejected
+
+The Promise object supports two properties: state and result.
+
+While a Promise object is "pending" (working), the result is undefined.
+
+When a Promise object is "fulfilled", the result is a value.
+
+When a Promise object is "rejected", the result is an error object.
+
+myPromise.state		myPromise.result
+"pending"		undefined
+"fulfilled"		a result value
+"rejected"		an error object
+
+You cannot access the Promise properties state and result.
+
+You must use a Promise method to handle promises.
+
+
+=============================================================================
+
+
+const myFirstPromise = new Promise((resolve, reject) => {
+  // We call resolve(...) when what we were doing asynchronously was successful, and reject(...) when it failed.
+  // In this example, we use setTimeout(...) to simulate async code.
+  // In reality, you will probably be using something like XHR or an HTML API.
+  setTimeout(() => {
+    resolve("Success!"); // Yay! Everything went well!
+  }, 250);
+});
+
+myFirstPromise.then((successMessage) => {
+  // successMessage is whatever we passed in the resolve(...) function above.
+  // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+  console.log(`Yay! ${successMessage}`);
+});
+
+=================================================================================
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Promise</h2>
+
+<p id="demo"></p>
+
+<script>
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+let myPromise = new Promise(function(myResolve, myReject) {
+  let x = 5;
+  
+   if (x == 0) {
+    myResolve("OK");
+  } else {
+    myReject("Error");
+  }
+});
+
+myPromise.then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+</script>
+
+</body>
+</html>
+
+===========================================================
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Promise</h2>
+
+<p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+<h1 id="demo"></h1>
+
+<script>
+const myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function(){ myResolve("Welcome to NIIT !!"); }, 3000);
+});
+
+myPromise.then(function(value) {
+  document.getElementById("demo").innerHTML = value;
+});
+</script>
+
+</body>
+</html>
+===================================================================================
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Promise</h2>
+
+<p id="demo"></p>
+
+<script>
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+let myPromise = new Promise(function(myResolve, myReject) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "mycar.html");
+  req.onload = function() {
+    if (req.status == 200) {
+      myResolve(req.response);
+    } else {
+      myReject("File not Found");
+    }
+  };
+  req.send();
+});
+
+myPromise.then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+</script>
+
+</body>
+</html>
+==================================================================================
+The keyword async before a function makes the function return a promise:
+
+async function myFunction() {
+  return "Hello";
+}
+
+function myFunction() {
+  return Promise.resolve("Hello");
+}
+
+myFunction().then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript async / await</h2>
+
+<h1 id="demo"></h1>
+
+<script>
+async function myDisplay() {
+  let myPromise = new Promise(function(resolve) {
+    resolve("welcome !!");
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+
+myDisplay();
+</script>
+
+</body>
+</html>
+
+======================================================
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript async / await</h2>
+
+<p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+<h1 id="demo"></h1>
+
+<script>
+async function myDisplay() {
+  let myPromise = new Promise(function(resolve) {
+    setTimeout(function() {resolve("welcome !!");}, 3000);
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+
+myDisplay();
+</script>
+
+</body>
+</html>
+
+===============================================================
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript async / await</h2>
+
+<p id="demo"></p>
+
+<script>
+async function getFile() {
+  let myPromise = new Promise(function(resolve) {
+    let req = new XMLHttpRequest();
+    req.open('GET', "mycar.html");
+    req.onload = function() {
+      if (req.status == 200) {
+        resolve(req.response);
+      } else {
+        resolve("File not Found");
+      }
+    };
+    req.send();
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+
+getFile();
+</script>
+
+</body>
+</html>
+
+=====================================================================
+
+Callback examples :
+============================================================================================
+index.html:
+============
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Demos</title>
+</head>
+
+<body>
+    <h1>Call Back Demos</h1>
+    <div id="clock"></div>
+    <div id="app"></div>
+    <script src="./source.js"></script>
+</body>
+
+</html>
+
+==================================================================================================
+source.js
+=========
+// @ts-nocheck
+const displayClock = () => {
+    setInterval(() => {
+        const clockDiv = document.getElementById('clock');
+        clockDiv.innerHTML =
+            "<h3>It's " + new Date().getHours() +
+            'hours ' + new Date().getMinutes() +
+            'mins and ' + new Date().getSeconds() +
+            'seconds </h3>';
+    }, 1000);
+}
+
+displayClock();
+
+const appDiv=document.getElementById('app');
+appDiv.innerHTML=`<h1>Good afternoon</h1>`;
+
+const greet=(name)=>{
+appDiv.innerHTML+=`<h2>Hello`+name+`</h2>`;
+}
+
+greet('ram.sita');
+
+
+const setBgColor=section=>{
+let color=`rgb(${Math.floor(Math.random()*128+1)},${Math.floor(Math.random()*128+1)},${Math.floor(Math.random()*128+1)})`;
+console.log(color);
+section.style.backgroundColor=color;
+}
+
+const changeColor=(setColor,interval)=>{
+setInterval(()=>{
+setBgColor(appDiv);
+},interval)
+}
+
+changeColor(setBgColor,3000);
+
+====================================================================================
+
+Promise : helps to async process external interactions.
+
+Axios : helps to make API calls and return promise and allow to make http request.
+get(), post(), delete().
+======================================================================================
+How to include axios in index.html 
+
+1. CDN :
+
+<script src="https://unpkg.com/axios/dist/axios.min.js">
+</script>
+
+2. If CDN fails, then Download axios 
+
+In your project, Go to terminal and create a directory.
+
+mkdir axios-js
+cd axios-js
+npm install axios --save
+
+<script src='/demo2/axios-js/node-modules/axios/dis/axios.min.js'>
+</script>
+========================================================================================
+Ex: Axios
+
+test url : https://reqres.in/api/users
+
+{"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+=========================================================================
+Home.html
+=========
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIOS demo</title>
+</head>
+
+<body>
+    <h1>Axios demos</h1>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="./s1.js"></script>
+</body>
+
+</html>
+===================================================================
+S1.js
+====
+const fetchUser=()=>{
+axios
+.get('https://reqres.in/api/users')  //resource taken from external server
+.then(response=>{
+const users=response.data.data;
+console.log(users);
+})
+.catch(error=>console.error(error));
+}
+fetchUser();
+===================================================================
+ // filter
+export const getListsByBoardId = (data,boardId)=>{
+    let filteredLists = data.lists.filter(list=> list.boardId === boardId)
+    return transformList(data, filteredLists);
+}
+
+// map
+export const transformList = (data, lists)=>{
+    return lists.map(list => {
+        return {
+            "listId": list.listId,
+            "listTitle": list.listTitle,
+            "cards": getCardsByListId(data,list.listId)
+        }
+    })
+}
+
+// filter
+export const getCardsByListId = (data,listId)=>{
+    let filteredCards = data.cards.filter(card => card.listId === listId)
+    return transformCard(data,filteredCards)
+}
+
+// map
+export const transformCard = (data, cards)=>{
+    return cards.map(card => {
+        return {
+        "cardId": card.cardId,
+        "cardTitle": card.cardTitle,
+        "comments": getCountOfCommentsByCardId(data.comments,card.cardId)
+    }})
+}
+
+// reduce
+export const getCountOfCommentsByCardId = (comments, cardId)=>{
+    return comments.reduce ((acc,val)=>acc+1,0)
+}
+//use above functions in transform() and get the required output
+
+export const transform = (data) => {
+    return data.boards.map(board=>{
+        return{
+            "boardId":board.boardId,
+            "boardTitle": board.boardTitle,
+            "lists": getListsByBoardId(data, board.boardId)
+        
+        }
+    })
+}
+==============================================================================
+
+<meta http-equiv="refresh" content="5" />
+
+==============================================================================
+
+npm install html-webpack-plugin
+npm install clean-webpack-plugin
+
+=================================
+webpack config file
+
+plugins: [
+new CleanWebpackPlugin(),
+new HtmlWebpackPlugin({
+filename: 'index.html',
+inject:true,
+template:path.resolve(__dirname,
+'src',index.html');
+});}
+================================
+const path=require('path')
+const CleanWebpackPlugin=
+require('clean-webpack-plugin')
+const HtmlWebpackPlugin=require
+('html-webpack-plugin')
+module.exports={
+mode:'production',
+devtool: 'source-map',
+entry:'./src/index.js',
+output: {
+filename:'main.js',
+path:path.resolve(__dirname,'dist')
+},
+plugins: [
+new CleanWebpackPlugin(),
+new HtmlWebpackPlugin({
+filename: 'index.html',
+inject:true,
+template:patch.resolve(__dirname,
+'src','index.html');
+}),
+]
+}
+
+===================================================================
+src/index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="call"></p>
+<p id="sample"></p>
+<!-- <script  src="./src/calling.js"></script>
+<script  src="./src/sampling.js"></script> -->
+<script src="./dist/bundle.js"></script>
+
+</body>
+</html>
+
+package.json
+
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config=webpack.config.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
+
+
+webpack.config.js
+
+const path=require('path')
+module.exports = {
+    
+    entry: {
+      'bundle.js' :[
+        path.resolve(__dirname, './src/calling.js'),
+        path.resolve(__dirname, './src/sampling.js'),
+        
+      ]
+    },
+    output: {
+      filename: '[name]', 
+      path: path.resolve(__dirname, 'dist')
+    }
+};
+
+
+calling.js
+
+// @ts-nocheck
+   function callingNow(){
+    return "welcome to niit, Study at niit";
+    
+    }
+    document.getElementById("call").innerHTML=callingNow();
+    
+
+sampling.js
+
+// @ts-nocheck
+
+function samplingNow(){
+    return "India is my country";
+    
+    }
+    document.getElementById("sample").innerHTML=samplingNow();
+
+===========================================================================
+webpack.config.js
+
+// @ts-nocheck
+const path=require('path')
+const {CleanWebpackPlugin}= require('clean-webpack-plugin')
+const HtmlWebpackPlugin=require
+('html-webpack-plugin')
+module.exports={
+mode:'production',
+devtool: 'source-map',
+entry:{
+    'bundle.js' :[
+      path.resolve(__dirname, './src/calling.js'),
+      path.resolve(__dirname, './src/sampling.js'),
+      
+    ]
+  },
+output: {
+    filename: '[name]', 
+    path: path.resolve(__dirname, 'dist')
+  },
+plugins: [
+new CleanWebpackPlugin(),
+new HtmlWebpackPlugin({
+filename: 'index.html',
+inject:true,
+template:path.resolve(__dirname,'src','index.html')
+}),
+]
+}
+
+====================================================================================
+final package.json file
+{
+  "name": "test-plugin",
+  "version": "1.0.0",
+  "description": "testing purpose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config=webpack.config.js"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "saravanan",
+  "license": "MIT",
+  "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0"
+  }
+}
+
+=================================================================================
+run thru package.json
+
+npm run build
+
+or 
+
+npx webpack
+
+=================================================================================
+
+npm init
+
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (npm) test-package-niit
+version: (1.0.0)
+description: super awesome package
+entry point: (index.js)
+test command:
+git repository:
+keywords: test, package, awesome
+author: saravanan
+license: (ISC) MIT
+About to write to D:\desktop\desktop sept 2022\Wave25\JS\NPM\package.json:
+
+{
+  "name": "test-package-niit",
+  "version": "1.0.0",
+  "description": "super awesome package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test",
+    "package",
+    "awesome"
+  ],
+  "author": "saravanan",
+  "license": "MIT"
+}
+
+
+Is this OK? (yes)
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM> dir
+
+    Directory: D:\desktop\desktop sept 2022\Wave25\JS\NPM
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          02/11/2022    11:29             79 index.js
+-a---          02/11/2022    11:28            305 package.json
+
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM> node index.js
+saravananwelcome
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM> npm login
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global`
+ instead.
+npm notice Log in on https://registry.npmjs.org/
+Username: sar2009
+Password:
+Email: (this IS public) sarmca2009@gmail.com
+npm notice Please check your email for a one-time password (OTP)
+Enter one-time password: 26421588
+Logged in as sar2009 on https://registry.npmjs.org/.
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM> npm pack --dry-run
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global`
+ instead.
+npm notice 
+npm notice 📦  test-package-niit@1.0.0
+npm notice === Tarball Contents === 
+npm notice 80B  index.js    
+npm notice 305B package.json
+npm notice === Tarball Details ===
+npm notice name:          test-package-niit
+npm notice version:       1.0.0
+npm notice filename:      test-package-niit-1.0.0.tgz
+npm notice package size:  363 B
+npm notice unpacked size: 385 B
+npm notice shasum:        6639638bb31b7c2478a0ecf5a9b9af6a17ad2dda
+npm notice integrity:     sha512-7OSACVtYFy9eg[...]SLQtt5C9Ouz2g==
+npm notice total files:   2
+npm notice 
+test-package-niit-1.0.0.tgz
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM> 
+ *  History restored 
+
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM> npm publish
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+npm notice 
+npm notice 📦  test-package-niit@1.0.0
+npm notice === Tarball Contents ===
+npm notice 80B  index.js    
+npm notice 305B package.json
+npm notice === Tarball Details ===
+npm notice name:          test-package-niit
+npm notice version:       1.0.0
+npm notice filename:      test-package-niit-1.0.0.tgz
+npm notice package size:  363 B
+npm notice unpacked size: 385 B
+npm notice shasum:        6639638bb31b7c2478a0ecf5a9b9af6a17ad2dda
+npm notice integrity:     sha512-7OSACVtYFy9eg[...]SLQtt5C9Ouz2g==
+npm notice total files:   2
+npm notice
+npm notice Publishing to https://registry.npmjs.org/
++ test-package-niit@1.0.0
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM> 
+ *  History restored
+
+===============================================
+
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM fetch> npm i test-package-niit
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+
+added 1 package, and audited 2 packages in 4s
+
+found 0 vulnerabilities
+PS D:\desktop\desktop sept 2022\Wave25\JS\NPM fetch> 
+ *  History restored 
+===================================================== 
+
+EX1: Module demo (export and import)
+
+index.html
+==========
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Modules</h1>
+<p id="demo"></p>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
+=====================================
+main.js
+=======
+// @ts-nocheck
+import { name, age } from "./person.js";
+let text = "My name is " + name + ", I am " + age + ".";
+document.getElementById("demo").innerHTML = text;
+=========================================
+person.js
+=========
+const name = "sam";
+const age = 18;
+export {name, age};
+===========================================
+Ex2: Webpack demo
+
+npm init -> to create package.json file 
+
+
+npm i webpack webpack-cli --save-dev -> to create node modules
+
+=========================================================================================
+index.html :
+============
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="call"></p>
+<p id="sample"></p>
+<!-- <script  src="./src/calling.js"></script>
+<script  src="./src/sampling.js"></script> -->
+<script src="./dist/bundle.js"></script>
+
+</body>
+</html>
+=============================================================================
+src/calling.js
+
+// @ts-nocheck
+function callingNow(){
+return "welcome to niit, Study at niit";
+
+}
+document.getElementById("call").innerHTML=callingNow();
+
+====================================
+src/sampling.js
+
+// @ts-nocheck
+function samplingNow(){
+    return "India is my country";
+    
+    }
+    document.getElementById("sample").innerHTML=samplingNow();
+
+============================================
+webpack.config.js
+=================
+const path=require('path')
+module.exports = {
+    
+    entry: {
+      'bundle.js' :[
+        path.resolve(__dirname, './js/script.js'),
+        path.resolve(__dirname, './js/store.js'),
+        path.resolve(__dirname, './js/contact_service.js'),
+        
+      ]
+    },
+    output: {
+      filename: '[name]', 
+      path: path.resolve(__dirname, 'dist')
+    }
+};
+   
+================================================
+npx webpack -> to create dist/bundle.js file
+================================================
+package.json: 
+=============
+Configures npm package dependencies that are available for all project in the workspace
+
+The package.json file records the minimum version of different dependencies that your app needs. When a collaborator on the code does npm install the dependency versions installed will be those dictated in the package.json or a higher/more recent reversion.
+
+The ^ before the dependency version tells npm that if someone clones the project and runs npm install it should install the latest minor version. If it has a ~ it will update to latest patch version. This can sometimes cause issues since the collaborators on the same project might all be on different dependency versions.
+
+It also is used to define project properties, descriptions, and license information.
+
+package-lock.json :
+================
+Where the package.json file is used for a handful of different things, the package-lock.json file is solely used to "lock" dependencies to a specific version number, including minor and patch versions.
+
+It will ignore the ^ and the ~ of the package.json file. This file keeps track of the the exact version of each installed package which means that future installs will be able to build an identical dependency tree.
+========================================================================================
+
+https://webpack.js.org/configuration/
+========================================================================================
+
+In package.json
+
+"scripts":{
+"build" : "webpack --config=webpack.config.js"
+}
+=======================================================================================
+
+npm run build
+
+======================================================================================
+
+Additional demo :
+
+create a file src/foo.js
+
+function greet(data){
+    console.log("Welcome "+data+" to NIIT and study well");
+}
+greet("sam");
+
+====================================
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cache</h1>
+    <script src=""></script>
+</body>
+</html>
+
+==================================
+create package.json file
+
+npm init
+==================================
+install webpack
+
+npm i webpack-cli --save -dev
+==================================
+create webpack.config.js
+
+
+// webpack.config.js 
+const path = require('path'); 
+const webpack = require('webpack'); 
+module.exports = { 
+  entry: { 
+    main: './src/foo', 
+  }, 
+  output: { 
+    path: path.join(__dirname, 'dist'), 
+    filename: '[name].[hash].js', 
+  },
+   
+};
+==================================
+modify your package.json
+
+{
+  "name": "cache",
+  "version": "1.0.0",
+  "description": "cache demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config=webpack.config.js"
+  },
+  "author": "saravanan",
+  "license": "MIT",
+  "dependencies": {
+    "webpack-cli": "^4.10.0"
+  }
+}
+
+====================================
+case 1:
+
+Now build the code 
+
+npm run build.
+
+check the dist folder.
+You will find the file as 
+
+main.hashvalue.js
+==========================================
+case 2 :
+Change the source code of foo.js
+
+function greet(data){
+    console.log("Welcome "+data+" to NIIT");
+}
+greet("ram");
+
+Now build the code 
+
+npm run build.
+
+check the dist folder.
+You will find main.newhashvalue.js
+==================================
+window.Calculator = { 
+   
+   currentVal:0,  
+   varAfterEachExmaple:0, 
+   
+   add:function (num1) { 
+      this.currentVal += num1; 
+      return this.currentVal;    
+   },     
+   
+   addAny:function () {    
+      var sum = this.currentVal; 
+		
+      for(var i = 0; i < arguments.length; i++) { 
+         sum += arguments[i]; 
+      } 
+      
+      this.currentVal = sum; 
+      Return  this.currentVal; 
+   }, 
+};
+
+
+describe("calculator",function() { 
+   
+   //test case: 1  
+   it("Should retain the current value of all time", function () {
+      expect(Calculator.currentVal).toBeDefined();
+      expect(Calculator.currentVal).toEqual(0);  
+   }); 
+   
+   //test case: 2  
+   it("should add numbers",function() {
+      expect(Calculator.add(5)).toEqual(5); 
+      expect(Calculator.add(5)).toEqual(10);  
+   });         
+    
+   //test case :3   
+   it("Should add any number of numbers",function () {
+      expect(Calculator.addAny(1,2,3)).toEqual(6); 
+   }); 
+}); 
+===================================
+nested 
+
+describe("nested",function() { 
+   
+   // Starting of first suite block  
+   // First block    
+	
+   describe("Retaining values ",function () {
+   
+      //test case:1    
+      it ("Should retain the current value of all time", function () { 
+         expect(Calculator.currentVal).toBeDefined();   
+         expect(Calculator.currentVal).toEqual(0);   
+      });    
+   }); //end of the suite block   
+
+   //second suite block 
+   describe("Adding single number ",function () {     
+   
+      //test case:2 
+      it("should add numbers",function() { 
+         expect(Calculator.add(5)).toEqual(5); 
+         expect(Calculator.add(5)).toEqual(10); 
+      });         
+   }); //end of the suite block  
+
+   //third suite block 
+   describe("Adding Different Numbers",function () {  
+   
+      //test case:3 
+      it("Should add any number of numbers",function() {  
+         expect(Calculator.addAny(1,2,3)).toEqual(6);  
+      });    
+   }); //end of the suite block 
+});
+=================================
+describe("Adding single number ", function () {  
+
+   //example of toEqual() matcher    
+   it("should add numbers",function() { 
+      expect(Calculator.add(5)).toEqual(5); 
+      expect(Calculator.add(5)).toEqual(10); 
+   });   
+   
+   it("should add numbers",function() { 
+      expect(Calculator.addAny(1,2,3)).toEqual(6); 
+   });
+}
+====================================
+
+describe('This custom matcher example', function() {
+   
+   beforeEach(function() { 
+      // We should add custom matched in beforeEach() function. 
+      jasmine.addMatchers ({ 
+         validateAge: function() { 
+            Return {    
+               compare: function(actual,expected) {
+                  var result = {}; 
+                  result.pass = (actual > = 13 && actual < = 19);
+                  result.message = 'sorry u are not a teen ';
+                  return result; 
+               }   
+            };   
+         }    
+      });    
+   }); 
+
+ it('Lets see whether u are teen or not', function() { 
+      var myAge = 14; 
+      expect(myAge).validateAge();         
+   });   
+    
+   it('Lets see whether u are teen or not ', function() { 
+      var yourAge = 18;
+      expect(yourAge).validateAge();  
+   });
+});
+=====================================
+
+skipping  spec
+
+ xit('Lets see whether u are teen or not ', function() {  
+      //Skipping this Spec 
+      var yourAge = 18; 
+   });
+});
+
+====================================
+skipping suite
+
+xdescribe('This custom matcher example ', function() {  
+
+-----
+
+=================================
+
+
+window.expectexam = {    
+   currentVal: 0,   
+};
+
+describe("Different Methods of Expect Block",function () { 
+   
+   it("The Example of toEqual() method",function () {   
+      //this will check whether the value of the variable  
+      // currentVal is equal to 0 or not.  
+      expect(expectexam.currentVal).toEqual(0);  
+   });
+});
+
+==============================
+
+describe("Different Methods of Expect Block",function () { 
+
+   it("The Example of toEqual() method",function () {
+      expect(expectexam.currentVal).toEqual(0);  
+   });   
+   
+   it("The Example of not.toEqual() method",function () {  
+      //negation  testing expect(expectexam.currentVal).not.toEqual(5); 
+   }); 
+});
+
+=================================
+
+describe("Different Methods of Expect Block",function () {  
+
+   it("The Example of toBe() method",function () { 
+      expect(expectexam.name).toBe(expectexam.name1);     
+   });
+});
+
+window.expectexam = {
+   currentVal: 0, 
+   name:"sam", 
+   name1:samNIIT  
+};
+
+==================================
+
+describe("Different Methods of Expect Block",function () { 
+   it("The Example of not.toBe() method",function () { 
+      expect(true).not.toBe(false);    
+   });
+});
+
+================================
+
+describe("Different Methods of Expect Block",function () {
+   it("The Example of toBeTruthy() method",function () {   
+      expect(expectexam.exampleoftrueFalse(5)).toBeTruthy();    
+   });
+});
+
+window.expectexam = {  
+   exampleoftrueFalse: function (num) {  
+      if(num < 10)    
+         return true;  
+      else   
+         return false;  
+   },  
+};
+
+=====================================
+
+describe("Different Methods of Expect Block",function() { 
+   it("The Example of toBeTruthy() method",function () {
+      expect(expectexam.exampleoftrueFalse(15)).toBeFalsy();   
+   });
+});
+
+window.expectexam = {  
+   exampleoftrueFalse: function (num) {  
+      if(num < 10)    
+         Return true;  
+      else   
+         return false; 
+   },
+}; 
+
+===================================
+
+describe("Different Methods of Expect Block",function () {  
+   it("The  Example of toContain() method",function () { 
+      expect([1,2, 3, 4]).toContain(3);
+   });
+}); 
+
+===============================
+
+describe("Different Methods of Expect Block", function () {  
+   it("Example of toBeCloseTo()", function () { 
+      expect(12.34).toBeCloseTo(12.3, 1);    
+   });
+});
+
+===================================
+
+describe("Different Methods of Expect Block",function () { 
+   it("Example of  toBeCloseTo()", function () { 
+      expect(12.34).toBeCloseTo(15, 1);
+   });
+}); 
+=================================
+describe("Different Methods of Expect Block",function () { 
+   it("Example of toMatch()", function () { 
+      expect("Jasmine solution in niit.com").toMatch(/com/);   
+   });
+});
+
+==================================
+
+currentVal = 0;  
+
+describe("Different Methods  of Expect Block",function () { 
+   it("Example of  toBeDefined", function () {
+      expect(currentVal).toBeDefined();
+   });
+});
+
+================================
+
+describe("Different Methods of Expect Block",function () { 
+   it("Example of toBeUndefine()", function () { 
+      var undefineValue; 
+      expect(undefineValue).toBeUndefined(); 
+   });
+}); 
+
+================================
+
+describe("Different Methods of Expect Block",function () { 
+   var value = null; 
+	
+   it("Example of toBeNull()", function () { 
+      expect(value).toBeNull();
+   });
+}); 
+
+==============================
+
+describe("Different Methods of Expect Block",function () { 
+   var exp = 8;  
+	
+   it("Example of  toBeGreaterThan()", function () {
+      expect(exp).toBeGreaterThan(5);
+   });
+});
+
+=================================
+
+describe("Different Methods of Expect Block",function () {  
+   var exp = 4;  
+	
+   it ("Example of toBeGreaterThan()", function () {
+      expect(exp).toBeGreaterThan(5); 
+   });
+});
+
+======================================
+
+describe("Different Methodsof Expect Block",function () { 
+   var exp = 4;  
+	
+   it("Example of toBeLessThan()", function() { 
+      expect(exp).toBeLessThan(5);    
+   });
+}); 
+
+=================================
+
+describe("Different Methods of Expect Block",function () { 
+   it("Example of toBeNaN()", function () { 
+      expect(0 / 0).toBeNaN(); 
+   });
+});
+
+===========================
+
+describe("Different Methods of Expect Block",function () { 
+   var exp = 25; 
+	
+   it("Example of toBeNaN()", function () { 
+      expect(exp/5).toBeNaN(); 
+   });
+});
+
+=============================
+
+var throwMeAnError = function() {   
+   throw new Error(); 
+};  
+
+describe("Different Methods of Expect Block", function() {  
+   var exp = 25; 
+
+   it ("Hey this will throw an Error ", function() { 
+      expect(throwMeAnError).toThrow(); 
+   }); 
+});
+
+==================================
+
+var addAny = function() {
+   var sum = this.currentVal; 
+	
+   for (var i = 0; i < arguments.length; i++) { 
+      sum += arguments[i]; 
+   } 
+	
+   this.currentVal = sum;  
+   return this.currentVal; 
+} 
+
+describe("Different Methods of Expect Block",function () { 
+   
+   it("Example of any()", function() { 
+      expect(addAny(9,9)).toEqual(jasmine.any(Number)); 
+   });
+});
+
+==================================
+
+var addAny = function() { 
+   var sum = this.currentVal; 
+	
+   for(var i = 0; i < arguments.length; i++) { 
+      sum += arguments[i]; 
+   } 
+	
+   this.currentVal = sum; 
+   return this.currentVal; 
+}  
+
+describe("Different Methodsof Expect Block",function () { 
+   it("Example of any()", function () { 
+      expect(addAny(9,9)).toEqual(jasmine.any(String));    
+   });
+});
+
+===============================
+
+var currentVal = 0; 
+
+beforeEach(function() { 
+   currentVal = 5; 
+});  
+
+describe("Different Methods of Expect Block",function() { 
+   it("after each function ", function() {
+      expect(currentVal).toEqual(5);     
+   });
+});
+
+================================
+
+var currentVal = 0; 
+
+afterEach(function() { 
+   currentVal = 5;  
+});  
+
+describe("Different Methods of Expect Block",function() { 
+   it("first call ", function() { 
+      expect(currentVal).toEqual(0);     
+   });     
+   
+   it("second call ",  function() { 
+      expect(currentVal).toEqual(5);     
+   });
+});
+
+===============================
+
+var Person = function() {}; 
+
+Person.prototype.sayHelloWorld = function(dict) { 
+   return dict.hello() + " " + dict.world(); 
+}; 
+
+var Dictionary = function() {}; 
+
+Dictionary.prototype.hello = function() { 
+   return "hello"; 
+}; 
+
+Dictionary.prototype.world = function() { 
+   return "world"; 
+}; 
+
+
+describe("Example Of jasmine Spy using spyOn()", function() { 
+  
+   it('uses the dictionary to say "hello world"', function() { 
+      var dictionary = new Dictionary; 
+      var person = new Person; 
+		
+      spyOn(dictionary, "hello");  // replace hello function with a spy 
+      spyOn(dictionary, "world");  // replace world function with another spy 
+		
+      person.sayHelloWorld(dictionary);
+      expect(dictionary.hello).toHaveBeenCalled();  
+      // not possible without first spy 
+  
+      expect(dictionary.world).toHaveBeenCalled();  
+      // not possible withoutsecond spy 
+   }); 
+});
+
+===================================
+
+var Person = function() {};    
+
+Person.prototype.sayHelloWorld = function(dict) { 
+   return dict.hello() + " " + dict.world(); 
+}; 
+
+var Dictionary = function() {}; 
+
+Dictionary.prototype.hello = function() { 
+   return "hello"; 
+}; 
+
+Dictionary.prototype.world = function() { 
+   return "world"; 
+}; 
+
+
+describe("Example Of jasmine Spy using Create Spy", function() { 
+   
+   it("can have a spy function", function() { 
+      var person = new Person(); 
+      person.getName11 = jasmine.createSpy("Name spy"); 
+      person.getName11(); 
+      expect(person.getName11).toHaveBeenCalled(); 
+   }); 
+}); 
+
+====================================
+Javascript testing using Jasmine Framework :
+=============================================
+To write test cases :
+1.
+BDD creation
+English statement is required
+===================================
+syntax:
+
+scenario 
+
+Given
+when
+then
+================================
+2.
+Jasmine code to map the above BDD creation
+==========================================
+
+syntax:
+
+describe block - test suite
+it block - spec
+expect block - to validate or test (Matcher function)
+
+======================================================
+BDD -> we dont access DOM 
+======================================================
+Extension file -> .js file
+
+we create two type of file
+
+1. src  file is also .js file
+2. spec file is also .js file (actually contains Jasmine code)
+=======================================================
+In Jasmine framework, we use the below html file to test our Jasmine code.
+
+SpecRunner.html
+
+In this we need to include src and spec .js files.
+
+This will produce output page.
+========================================================
+For the source file you have complete this task
+
+C9_S6_Develop UI fetch and display contact form
+
+and take this as an input in src folder for testing the current activity.
+
+C9_S8_develop-test-cases-for-contact-form-app
+
+==================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
