@@ -3,26 +3,89 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List Demo</title>
+    <title>FireBase Demo</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="./node_modules/axios/dist/axios.min.js"></script> -->
 </head>
 
 <body>
-    <h3>Grocery list</h3>
-    <ol>
-        <li>Milk</li>
-        <li>Bread</li>
-        <li>Vegetables</li>
-        <li>Eggs</li>
-    </ol>
-    <hr>
-    <h3>Programming languages</h3>
-    <ul>
-        <li>C++</li>
-        <li>Java</li>
-        <li>Python</li>
-        <li>C#</li>
-    </ul>
+    <h1>Student Details</h1>
+    <form>
+        <label>Enter ids</label>
+        <input type="text" id="ids" /><br />
+        <label>Enter your roll number</label>
+        <input type="text" id="roll" /><br />
+        <label>Enter your name</label>
+        <input type="text" id="name" /><br />
+        <label>Enter your Email</label>
+        <input type="email" id="email" /><br />
+        <input type="button" value="save" id="btnRun" onclick="storeValues();" />
+        <br><br>
+        <h2>Fetch Details</h2>
+        <br><br>
+        <input type="button" value="fetch" id="btnRun" onclick="fetchValues();" />
+        <ul>
+            <div id="student-data"></div>
+        </ul>
+
+       
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        
+        // @ts-nocheck
+ 
+const storeValues= ()=>{
+    console.log(document.getElementById('ids').value); 
+    console.log(document.getElementById('roll').value);
+    console.log(document.getElementById('name').value);
+    console.log(document.getElementById('email').value);
+  let studentDetails={
+    "id":document.getElementById('ids').value,
+   "roll":document.getElementById('roll').value,
+   "name":document.getElementById('name').value,
+   "email":document.getElementById('email').value,
+  }
+  console.log(studentDetails);
+    axios
+.post('https://studentdatabase-6ffa7-default-rtdb.firebaseio.com/students.json',studentDetails)
+  .then((res)=>console.log(res))
+  .then((err)=>console.log(err))
+console.log("inside method");
+alert("done");
+}
+
+
+const fetchValues = ()=>{
+  let promise = axios.get('https://studentdatabase-6ffa7-default-rtdb.firebaseio.com/students.json');
+  promise.then(response=>{
+          let studentDetails=[];
+          let datas=response.data; 
+          for(const key in datas)
+          {
+            studentDetails.push({...datas[key],id:key})
+          }
+             console.log(studentDetails);
+         console.log(studentDetails[0].email);        
+         document.getElementById('student-data').innerHTML=``;      
+      for(const key in studentDetails)
+      {
+    document.getElementById('student-data').innerHTML += `<br>
+    <li>Roll ${studentDetails[key].roll}</li>
+    <li>name ${studentDetails[key].name}</li>
+    <li>Email ${studentDetails[key].email} </li> <br>`;
+
+      }
+})
+
+}
+
+
+
+        
+        </script>
+     
 </body>
 
 </html>
