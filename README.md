@@ -1,3 +1,3 @@
 # Mywebsite
 Sample publish
-created for testing
+created for testing online store and fetch
