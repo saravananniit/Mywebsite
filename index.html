@@ -25,9 +25,9 @@
         <input   class="form-control" type="email" id="email" /><br />
         <input   class="btn btn-primary"  type="button" value="save" id="btnRun" onclick="storeValues();" />
         <input   class="btn btn-info"  type="button" value="search" id="btnSearch" onclick="searchValues();" />
-        <input   class="btn btn-danger"  type="button" value="delete" id="btnDelete" onclick="deleteValues();" />
         <input   class="btn btn-secondary"  type="button" value="update" id="btnUpdate" onclick="updateValues();" />
-      
+        <input   class="btn btn-danger"  type="button" value="delete" id="btnDelete" onclick="deleteValues();" />
+        
         <hr/>
         <h2 align="center">Fetch All Student Details</h2>
         <br><br>
@@ -47,14 +47,19 @@ const storeValues= ()=>{
     console.log(document.getElementById('roll').value);
     console.log(document.getElementById('name').value);
     console.log(document.getElementById('email').value);
-  let studentDetails={
+
+    let studentDetails={
     "id":document.getElementById('ids').value,
    "roll":document.getElementById('roll').value,
    "name":document.getElementById('name').value,
    "email":document.getElementById('email').value,
   }
   console.log(studentDetails);
-    axios
+if((studentDetails.id===null||studentDetails.email===null||studentDetails.name===null||studentDetails.roll===null)||(studentDetails.id===''||studentDetails.email===''||studentDetails.name===''||studentDetails.roll===''))
+alert("student details are incomplete")
+else
+{  
+axios
 .post('https://studentdatabase-6ffa7-default-rtdb.firebaseio.com/students.json',studentDetails)
   .then((res)=>console.log(res))
   .then((err)=>console.log(err))
@@ -62,6 +67,7 @@ console.log("inside method");
 textClear();
 alert("successfully saved");
 fetchAllValues();
+}
 }
 
 
@@ -119,7 +125,6 @@ const searchValues = ()=>{
     document.getElementById('roll').value=studentDetails[key].roll;
     document.getElementById('name').value=studentDetails[key].name;
     document.getElementById('email').value=studentDetails[key].email;
-         fetchAllValues();
         }
       }
       if(count==0) alert ("search failed, please enter correct id");
