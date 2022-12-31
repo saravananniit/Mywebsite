@@ -31,7 +31,7 @@
         <hr/>
         <h2 align="center">Fetch All Student Details</h2>
         <br><br>
-        <input type="button" class="btn btn-success" value="fetch All" id="btnRun" onclick="fetchAllValues();" />
+        <input type="button" class="btn btn-success" value="Fetch All" id="btnRun" onclick="fetchAllValues();" />
          <ul>
             <div id="student-data"></div>
         </ul>
@@ -96,6 +96,7 @@ const fetchAllValues = ()=>{
 } // method ends here
 
 const searchValues = ()=>{
+    
   let promise = axios.get('https://studentdatabase-6ffa7-default-rtdb.firebaseio.com/students.json');
    var input =prompt("enter your id to search");
       
@@ -118,11 +119,12 @@ const searchValues = ()=>{
     document.getElementById('roll').value=studentDetails[key].roll;
     document.getElementById('name').value=studentDetails[key].name;
     document.getElementById('email').value=studentDetails[key].email;
+         fetchAllValues();
         }
       }
       if(count==0) alert ("search failed, please enter correct id");
 })  
-  
+ 
 }//method ends here
 
 const deleteValues=()=>{
